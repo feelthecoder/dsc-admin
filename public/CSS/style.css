@@ -1,0 +1,40 @@
+#login-card {
+    width: 450px;
+    margin: 150px auto;
+}
+
+.brand a {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.brand button {
+    font-size: 3rem;
+    padding: .5rem;
+    backround: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    transform: traslateX(-30rem);
+    width: 30rem;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.sidebar.open {
+    transform;
+    translateX(0);
+}
+
+.brand a:hover {
+    color: red
+}
+
+.navbar {
+    align-items: center;
+}
