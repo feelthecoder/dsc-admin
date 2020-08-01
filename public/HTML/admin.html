@@ -15,19 +15,27 @@
 </head>
 
 
-<body class="h-100">
+<body class="h-100" style="background-color: #343a40;">
+
+
 
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <div class="brand">
-
-            </div> <a class="navbar-brand" href="#">DSC Admin, Welcome !</a>
+            <a class="navbar-brand" href="#">Welcome Admin!</a>
+            <div class="dropdown navbar-right">
+                <button id="user-email" class="btn btn-secondary " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Chat
+                    </button>
+                <div class="dropdown-menu" aria-labelledby="user-email">
+                    kfjvdivbdjvvfjvv vf vf v fv df v dfg vdgbgb gfb g b db d b db d bd
+                </div>
+            </div>
         </div>
 
         <div class="dropdown navbar-right">
-            <button id="user-email" class="btn btn-secondary dropdown-toogle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button id="user-email" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     admin@dscrecbijnor.com
                 </button>
             <div class="dropdown-menu" aria-labelledby="user-email">
@@ -35,92 +43,202 @@
             </div>
         </div>
     </nav>
-    <aside class="siebar">
-        <div class="row h-100 bg-light">
-            <div class="col-lg-2 bg-secondary">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a id="nav-home-id" class="nav-link" href="# " onclick="switchView('HTML/home.html') ">
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class=" nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Education</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Training</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Events</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Workshop</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Projects</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="#">
-                            <span>Quiz</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Tech Spandan</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Competitions</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Donation For Code</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Show Leader Board</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>About DSC</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">
-                            <span>Privacy Policy</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-    </aside>
-    <div class="col-lg-10 ">
-        <div class="container " id="container">
 
+    <div class="row h-100 bg-light">
+        <div class="col-lg-2 bg-secondary bg-dark">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a id="nav-home-id" class="nav-link" href="# " onclick="switchView('HTML/home.html') ">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class=" nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Education</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Training</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Events</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Workshop</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="#">
+                        <span>Quiz</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Tech Spandan</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Competitions</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Donation For Code</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Show Leader Board</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>About DSC</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="# ">
+                        <span>Privacy Policy</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-10 " style="background-color:rgb(240, 240, 240)">
+
+            <div class="container " id="container ">
+                <strong>
+                    <h2 style="font-family:fantasy">HOME</h2></strong>
+                <hr color=red height=20px/>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <form>
+                            <div class="form-group">
+                                <h3> <label for="news">News</label></h3>
+                                <input type="text" class="form-control" id="news-text" />
+                            </div>
+                            <div class="form-group">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%">0%</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary">Publish News</button>
+                            </div>
+                            <div id="result-news">
+                                <h6>News Updated!</h6>
+                            </div>
+                        </form>
+                    </div>
+
+                    <hr>
+                    <div class="col-lg-5">
+                        <h3>Result</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="result-title">Title</label>
+                                <input type="text" class="form-control" id="result-title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="result-file">File</label>
+                                <input type="file" class="form-control" id="result-file" />
+                            </div>
+                            <div class="form-group">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%">0%</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary">Publish Result</button>
+                            </div>
+                            <div id="result-result">
+                                <h6>Result Published!</h6>
+                            </div>
+
+                        </form>
+                    </div>
+                    <hr>
+
+                    <div class="col-lg-5">
+                        <h3>Banner</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="banner-title">Banner Number</label>
+                                <input type="text" class="form-control" id="banner-title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="banner-file">File</label>
+                                <input type="file" class="form-control" id="banner-file" />
+                            </div>
+                            <div class="form-group">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%">0%</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary">Publish Banner</button>
+                            </div>
+                            <div id="result-banner">
+                                <h6>Banner Published!</h6>
+                            </div>
+
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="col-lg-5">
+                        <h2>Post</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="post-title">Title</label>
+                                <input type="text" class="form-control" id="post-title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="post-desc">Description</label>
+                                <input type="text" class="form-control" id="post-desc" />
+                            </div>
+                            <div class="form-group">
+                                <label for="post-pic">Picture</label>
+                                <input type="file" class="form-control" id="post-pic" />
+                            </div>
+                            <div class="form-group">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%">0%</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary">Publish Post</button>
+                            </div>
+                            <div id="result-post">
+                                <h6>Post Published !!</h6>
+                            </div>
+
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="col-lg-5">
+                        <h6>Suggestions/Complains will shown here!</h6>
+                    </div>
+                    <hr>
+                    <div class="col-lg-5">
+                        <h6>Feedback will shown here!</h6>
+                    </div>
+                    <hr>
+                </div>
+            </div>
         </div>
     </div>
     </div>
-    <script src="JS/app.js" async></script>
-    <script>
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (!user) {
-                window.location.href = "index.html ";
-
-            }
-        });
-    </script>
 </body>
-< /html>
+
+</html>

@@ -2,17 +2,3 @@
     width: 450px;
     margin: 150px auto;
 }
-
-.brand a {
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: bolder;
-}
-
-.brand a:hover {
-    color: red
-}
-
-.navbar {
-    align-items: center;
-}
