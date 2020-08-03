@@ -1,0 +1,116 @@
+<strong>
+    <h2 style="font-family:fantasy">Quiz</h2></strong>
+<hr color=red height=20px/>
+<div class="row">
+    <div class="col-lg-5">
+        <form>
+            <h3>Add Questions</h3>
+            <br>
+            <div class="form-group">
+                <h5> <label for="name">Category</label></h5>
+                <input list="quiz" class="form-control " id="name " />
+                <datalist id="quiz">
+                    <option value="C">
+                    <option value="Android">
+                    <option value="iOS">
+                    <option value="NodeJs">
+                    <option value="React">
+                    <option value="JQuery">
+                    <option value="C++">
+                    <option value="Java">
+                    <option value="Python">
+                    <option value="SQL">
+                    <option value="Kotlin">
+                    <option value="JavaScript">
+                    <option value="HTML 5">
+                    <option value="CSS 3">
+                    <option value="Bootstrap">
+                    <option value="Dart">
+                    <option value="Objective C">
+                    <option value="Swift">
+                    <option value="Internet Of Things">
+                    <option value="Machine Learning">
+                    <option value="Cloud Computing">
+                    <option value="Artificial Intelligence">
+                    <option value="Ruby">
+                    <option value="R">
+                    <option value="PHP">
+                    <option value="Haskell">
+                    <option value="Unity">
+                    <option value="C#">
+                </datalist>
+            </div>
+            <hr>
+
+            <div class="form-group ">
+                <h5> <label for="sample ">Question</label></h5>
+                <input type="text" class="form-control " id="sample " />
+            </div>
+            <div class="form-group ">
+                <h5> <label for="sample ">Option A</label></h5>
+                <input type="text" class="form-control " id="sample " />
+            </div>
+            <div class="form-group ">
+                <h5> <label for="sample ">Option B</label></h5>
+                <input type="text" class="form-control " id="sample " />
+            </div>
+            <div class="form-group ">
+                <h5> <label for="sample ">Option C</label></h5>
+                <input type="text" class="form-control " id="sample " />
+            </div>
+            <div class="form-group ">
+                <h5> <label for="sample ">Option D</label></h5>
+                <input type="text" class="form-control " id="sample " />
+            </div>
+            <div class="form-group ">
+                <h5> <label for="sample ">Correct Answer</label></h5>
+                <input type="text" class="form-control " id="sample " />
+            </div>
+            <div class="form-group ">
+                <div class="progress ">
+                    <div class="progress-bar " style="width:0% ">0%</div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <button type="button " class="btn btn-primary ">Add Question</button>
+            </div>
+            <div id="result-news ">
+                <h6>Added!</h6>
+            </div>
+
+        </form>
+
+    </div>
+    <hr>
+    <div class="col-lg-7">
+        <h3>Question Bank</h3>
+        <br>
+        <h5><label for="res">Technology/Language</label> </h5>
+
+
+        <input list="technology " class="form-control " id="res-text " />
+        <datalist id="technology ">
+            <option value="C ">
+        </datalist>
+        <br>
+        <button type=" button ">Export Excel</button>
+        <br>
+        <br>
+        <table>
+
+            <tr>
+                <td>Question</td>
+
+                <td>Option A</td>
+                <td>
+                    Option B</td>
+                <td>Option C</td>
+                <td>Option D</td>
+                <td>Correct Answer</td>
+                <td><button type="button ">Remove</button></td>
+                <td><button type="button ">Edit</button></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
