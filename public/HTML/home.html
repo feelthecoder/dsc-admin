@@ -1,6 +1,9 @@
 <strong>
         <h2 style="font-family:fantasy">HOME</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <div class="row">
     <div class="col-lg-5">
         <form id="form-news">
@@ -169,6 +172,7 @@
             return;
         }
 
+        $("#spinner").addClass("spinner-grow");
 
 
         var data = firebase.database().ref("MainData/mText");
@@ -183,7 +187,7 @@
 
 
             }
-
+            $("#spinner").removeClass("spinner-grow")
             $("#form-news")[0].reset();
 
         })
@@ -218,6 +222,7 @@
             $("#banner-file").addClass("is-invalid");
             return;
         }
+        $("#spinner").addClass("spinner-grow")
 
         var database = firebase.database().ref("Switcher/");
 
@@ -347,7 +352,7 @@
                             }
                         });
                     }
-
+                    $("#spinner").removeClass("spinner-grow")
                     $("#form-banner")[0].reset();
                     $("#banner-progress").html("Completed");
 
@@ -355,10 +360,8 @@
                 });
             })
     })
-
-
-
     $("#result-upload").click(function() {
+
         var validType = ["application/pdf"];
 
         $("#result-title").removeClass("is-invalid");
@@ -381,6 +384,8 @@
             $("#result-file").addClass("is-invalid");
             return;
         }
+
+        $("#spinner").addClass("spinner-grow");
 
         var time = new Date().getTime();
 
@@ -426,6 +431,7 @@
 
 
                         }
+                        $("#spinner").removeClass("spinner-grow")
                         $("#form-result")[0].reset();
                         $("#result-progress").html("Completed");
                     });
@@ -464,6 +470,8 @@
             $("#post-pic").addClass("is-invalid");
             return;
         }
+
+        $("#spinner").addClass("spinner-grow")
 
         var time = new Date().getTime();
 
@@ -514,7 +522,7 @@
 
 
                         }
-
+                        $("#spinner").removeClass("spinner-grow")
                         $("#form-post")[0].reset();
                         $("#post-progress").html("Completed");
                     })
@@ -522,6 +530,7 @@
                 });
             });
     })
+
     var dComp = firebase.database().ref("MainData/ComplainSuggestions");
     dComp.on("value", function(complains) {
 
@@ -563,4 +572,5 @@
 
 
     })
+</script>
 </script>

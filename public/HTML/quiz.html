@@ -1,6 +1,9 @@
 <strong>
     <h2 style="font-family:fantasy">Quiz</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <h3>Add Questions</h3>
 <br>
 
@@ -197,6 +200,8 @@
                     return;
                 }
 
+
+                $("#spinner").addClass("spinner-grow")
                 var quizData = {
                     "question": question,
                     "option1": a,
@@ -220,6 +225,9 @@
 
 
                     }
+
+                    $("#spinner").removeClass("spinner-grow")
+                    $("#quiz")[0].reset();
 
                 })
 

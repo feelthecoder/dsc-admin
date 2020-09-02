@@ -1,6 +1,9 @@
 <strong>
         <h2 style="font-family:fantasy">e-Library</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <div class="col-lg-5" style="margin-left:-1.3%">
     <h3>Resources Upload</h3>
     <br>
@@ -333,6 +336,7 @@
                     return;
                 }
 
+                $("#spinner").addClass("spinner-grow")
 
 
                 var database = firebase.database().ref("Education/" + technology + "/pdf/");
@@ -377,6 +381,7 @@
 
 
                                 }
+                                $("#spinner").removeClass("spinner-grow")
                                 $("#form-pdf")[0].reset();
                                 $("#pdf-progress").html("Completed");
                             });
@@ -413,6 +418,7 @@
                     "name": title,
                     "link": link
                 };
+                $("#spinner").addClass("spinner-grow")
                 data.push().set(dataS, function(err) {
                     if (err) {
                         $("#result-blog").attr("class", "alert alert-danger");
@@ -424,7 +430,7 @@
 
 
                     }
-
+                    $("#spinner").removeClass("spinner-grow")
                     $("#form-blog")[0].reset();
 
                 })
@@ -450,6 +456,7 @@
                     $("#udemy-link").addClass("is-invalid");
                     return;
                 }
+                $("#spinner").addClass("spinner-grow")
 
 
                 var data = firebase.database().ref("Education/" + technology + "/udemy/");
@@ -469,6 +476,7 @@
 
 
                     }
+                    $("#spinner").removeClass("spinner-grow")
 
                     $("#form-udemy")[0].reset();
 
@@ -495,7 +503,7 @@
                     return;
                 }
 
-
+                $("#spinner").addClass("spinner-grow")
                 var data = firebase.database().ref("Education/" + technology + "/youtube/");
 
                 var dataS = {
@@ -513,7 +521,7 @@
 
 
                     }
-
+                    $("#spinner").removeClass("spinner-grow")
                     $("#form-youtube")[0].reset();
 
                 })
@@ -540,7 +548,7 @@
                 }
 
 
-
+                $("#spinner").addClass("spinner-grow")
                 var data = firebase.database().ref("Education/" + technology + "/dsc/");
 
                 var dataS = {
@@ -558,7 +566,7 @@
 
 
                     }
-
+                    $("#spinner").removeClass("spinner-grow")
                     $("#form-dsc")[0].reset();
 
                 })
@@ -582,7 +590,7 @@
                     $("#nptel-link").addClass("is-invalid");
                     return;
                 }
-
+                $("#spinner").addClass("spinner-grow")
 
                 var data = firebase.database().ref("Education/" + technology + "/nptel/");
 
@@ -601,7 +609,7 @@
 
 
                     }
-
+                    $("#spinner").removeClass("spinner-grow")
                     $("#form-nptel")[0].reset();
 
                 })
@@ -633,6 +641,8 @@
                     $("#book-file").addClass("is-invalid");
                     return;
                 }
+
+                $("#spinner").addClass("spinner-grow")
 
 
 
@@ -678,6 +688,7 @@
 
 
                                 }
+                                $("#spinner").removeClass("spinner-grow")
                                 $("#form-book")[0].reset();
                                 $("#book-progress").html("Completed");
                             });
@@ -689,7 +700,6 @@
 
             })
         }
-
 
     });
 </script>

@@ -1,6 +1,9 @@
 <strong>
     <h2 style="font-family:fantasy">About Us</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <h3>Add Member</h3>
 
 <div class="col-lg-5" style="margin-left:-1.3%">
@@ -173,7 +176,7 @@
             return;
         }
 
-
+        $("#spinner").addClass("spinner-grow")
 
         var database = firebase.database().ref("About/aboutpdf");
 
@@ -212,6 +215,7 @@
 
 
                         }
+                        $("#spinner").removeClass("spinner-grow")
                         $("#about")[0].reset();
                         $("#about-progress").html("Completed");
                     });
@@ -323,6 +327,7 @@
                     return;
                 }
 
+                $("#spinner").addClass("spinner-grow")
 
                 var database = firebase.database().ref("About/" + mem + "/");
 
@@ -377,6 +382,7 @@
 
 
                                 }
+                                $("#spinner").removeClass("spinner-grow")
                                 $("#team")[0].reset();
                                 $("#team-progress").html("Completed");
                             });

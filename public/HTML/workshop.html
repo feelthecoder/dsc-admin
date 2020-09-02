@@ -1,6 +1,9 @@
 <strong>
     <h2 style="font-family:fantasy">Workshops</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <div class="row">
     <div class="col-lg-4">
         <h3>Post New Workshop</h3>
@@ -157,6 +160,8 @@
         varaDate = dete() + " " + month[mon] + " " + year;
         console.log(varaDate);
 
+        $("#spinner").addClass("spinner-grow");
+
 
 
 
@@ -206,6 +211,7 @@
 
 
                         }
+                        $("#spinner").removeClass("spinner-grow");
 
                         $("#work")[0].reset();
                         $("#work-progress").html("Completed");

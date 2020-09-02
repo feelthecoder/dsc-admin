@@ -1,6 +1,9 @@
 <strong>
     <h2 style="font-family:fantasy">Tech Spandan</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <div class="row">
     <div class="col-lg-6">
         <form id="spandan">
@@ -229,6 +232,7 @@
         console.log(varaDate);
 
 
+        $("#spinner").addClass("spinner-grow");
 
 
         var database = firebase.database().ref("SpandanEvents/");
@@ -277,15 +281,14 @@
 
 
                         }
-
+                        $("#spinner").removeClass("spinner-grow")
                         $("#spandan")[0].reset();
                         $("#spa-progress ").html("Completed ");
                     })
 
                 });
             });
-    })
-    $("#res-upload").click(function() {
+    }) $("#res-upload").click(function() {
 
         var validFormat = ["image/png", "image/jpg", "image/jpeg"];
 
@@ -322,7 +325,7 @@
         }
 
 
-
+        $("#spinner").addClass("spinner-grow")
 
         var database = firebase.database().ref("SpandanResources/" + year);
 
@@ -368,14 +371,15 @@
 
                         }
 
+                        $("#spinner").removeClass("spinner-grow")
+
                         $("#resource")[0].reset();
                         $("#res-progress").html("Completed ");
                     })
 
                 });
             });
-    })
-    $("#about-upload").click(function() {
+    }) $("#about-upload").click(function() {
         $("#about-file").removeClass("is-invalid");
 
         var validType = ["application/pdf"];
@@ -393,7 +397,7 @@
             return;
         }
 
-
+        $("#spinner").addClass("spinner-grow")
 
         var database = firebase.database().ref("SpandanResources/aboutpdf");
 
@@ -432,6 +436,7 @@
 
 
                         }
+                        $("#spinner").removeClass("spinner-grow")
                         $("#about")[0].reset();
                         $("#about-progress").html("Completed");
                     });

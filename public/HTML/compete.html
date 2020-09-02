@@ -1,6 +1,9 @@
 <strong>
     <h2 style="font-family:fantasy">Competitions</h2></strong>
 <hr color=red height=20px/>
+<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
 <div class="row">
     <div class="col-lg-4">
         <h3>Post New Competition</h3>
@@ -130,6 +133,7 @@
             $("#compete-date").addClass("is-invalid");
             return;
         }
+        $("#spinner").addClass("spinner-grow")
 
         var datee = new Date(date);
         var month = [
@@ -206,6 +210,8 @@
 
 
                         }
+
+                        $("#spinner").removeClass("spinner-grow")
 
                         $("#compete")[0].reset();
                         $("#compete-progress").html("Completed ");
