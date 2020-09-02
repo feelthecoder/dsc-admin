@@ -1,226 +1,695 @@
 <strong>
         <h2 style="font-family:fantasy">e-Library</h2></strong>
 <hr color=red height=20px/>
+<div class="col-lg-5">
+    <h3>Resources Upload</h3>
+    <br>
+    <label for="res-text">Technology/Subject</label>
+    <input placeholder="Select from list only" list="technology" class="form-control " id="res-text" />
+    <div class="invalid-feedback">
+        Please enter technology
+    </div>
+
+    <datalist id="technology">
+        <option value="C"></option>
+        <option value="Android"></option>
+        <option value="iOS"></option>
+        <option value="NodeJs"></option>
+        <option value="React"></option>
+        <option value="JQuery"></option>
+        <option value="C++"></option>
+        <option value="Java"></option>
+        <option value="Python"></option>
+        <option value="SQL"></option>
+        <option value="Kotlin"></option>
+        <option value="JavaScript"></option>
+        <option value="HTML 5"></option>
+        <option value="CSS 3"></option>
+        <option value="Bootstrap"></option>
+        <option value="Dart"></option>
+        <option value="Objective C"></option>
+        <option value="Swift"></option>
+        <option value="Internet Of Things"></option>
+        <option value="Machine Learning"></option>
+        <option value="Cloud Computing"></option>
+        <option value="Artificial Intelligence"></option>
+        <option value="Ruby"></option>
+        <option value="R"></option>
+        <option value="PHP"></option>
+        <option value="Haskell"></option>
+        <option value="Unity"></option>
+        <option value="C#"></option>
+        <option value="Other Tech Resource"></option>
+        <option value="Non-Tech Resource"></option>
+    </datalist>
+</div>
+<br>
+
 <div class="row">
+
+
     <div class="col-lg-6">
-        <form>
+        <h3>PDF Upload</h3>
+        <form id="form-pdf">
             <div class="form-group">
-                <h3>Resources Upload</h3>
-                <br>
-                <h4><label for="res">Technology/Subject</label> </h4>
-                <input list="technology" class="form-control " id="res-text " />
-                <datalist id="technology">
-                        <option value="C">
-                        <option value="Android">
-                        <option value="iOS">
-                        <option value="NodeJs">
-                        <option value="React">
-                        <option value="JQuery">
-                        <option value="C++">
-                        <option value="Java">
-                        <option value="Python">
-                        <option value="SQL">
-                        <option value="Kotlin">
-                        <option value="JavaScript">
-                        <option value="HTML 5">
-                        <option value="CSS 3">
-                        <option value="Bootstrap">
-                        <option value="Dart">
-                        <option value="Objective C">
-                        <option value="Swift">
-                        <option value="Internet Of Things">
-                        <option value="Machine Learning">
-                        <option value="Cloud Computing">
-                        <option value="Artificial Intelligence">
-                        <option value="Ruby">
-                        <option value="R">
-                        <option value="PHP">
-                        <option value="Haskell">
-                        <option value="Unity">
-                        <option value="C#">
-                        <option value="Other Tech Resource">
-                        <option value="Non-Tech Resource">
-                    </datalist>
-
-            </div>
-            <hr>
-            <div>
-                <div>
-                    <h3>PDF Upload</h3>
-                    <br>
-                    <h5><label for="pdf ">Name</label> </h5>
-                    <input type="text " class="form-control " id="pdf-text " />
-                    <h5><label for="pdf ">Select File</label> </h5>
-                    <input type="file " class="form-control " id="pdf-file " />
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload PDF</button>
-                </div>
-                <div id="result-pdf ">
-                    <h6>Uploaded!</h6>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <div>
-                    <h3>Recommended Youtube Courses Upload</h3>
-                    <br>
-                    <h5><label for="link ">Course Name</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <h5><label for="link ">Course Link</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload Course</button>
-                </div>
-                <div id="result-course ">
-                    <h6>Uploaded!</h6>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <div>
-                    <h3>Free Udemy Courses Upload</h3>
-                    <br>
-                    <h5><label for="link ">Course Name</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <h5><label for="link ">Course Link</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload Course</button>
-                </div>
-                <div id="result-course ">
-                    <h6>Uploaded!</h6>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <div>
-                    <h3>NPTEL Lecture Upload</h3>
-                    <br>
-                    <h5><label for="link ">Lecture/Course Name</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <h5><label for="link ">Lecture/Course Link</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload Lecture/Course</button>
-                </div>
-                <div id="result-course ">
-                    <h6>Uploaded!</h6>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <div>
-                    <h3>DSC Tutor Upload</h3>
-                    <br>
-                    <h5><label for="link ">Course Name</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <h5><label for="link ">Course Link</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload Course</button>
-                </div>
-                <div id="result-course ">
-                    <h6>Uploaded!</h6>
-                </div>
-            </div>
-            <hr>
-
-            <div>
-                <div>
-                    <h3>Standard Books Upload</h3>
-                    <br>
-                    <h5><label for="pdf ">Name</label> </h5>
-                    <input type="text " class="form-control " id="pdf-text " />
-                    <h5><label for="pdf ">Select File</label> </h5>
-                    <input type="file " class="form-control " id="pdf-file " />
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload Book</button>
-                </div>
-                <div id="result-pdf ">
-                    <h6>Uploaded!</h6>
-                </div>
-            </div>
-            <hr>
-
-            <div>
-                <div>
-                    <h3>Best Blogs Upload</h3>
-                    <br>
-                    <h5><label for="link ">Blog Name</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <h5><label for="link ">Blog Link</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                </div>
-                <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Upload Blog</button>
-                </div>
-                <div id="result-course ">
-                    <h6>Uploaded!</h6>
+                <label for="pdf-text">Name</label>
+                <input type="text" class="form-control " id="pdf-text" />
+                <div class="invalid-feedback">
+                    Please enter pdf name
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="pdf-file ">Select File</label>
+                <input type="file" class="form-control" id="pdf-file" />
+                <div class="invalid-feedback">
+                    Please choose valid file
+                </div>
+            </div>
 
+            <div class="form-group">
+                <div class="progress">
+                    <div id="pdf-progress" class="progress-bar " style="width:0% ">0%</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="pdf-upload" type="button" class="btn btn-primary">Upload PDF</button>
+            </div>
+            <div id="result-pdf">
+                <h6></h6>
+            </div>
         </form>
+    </div>
+    <div class="col-lg-6">
+        <h3>Recommended Youtube Courses Upload</h3>
+        <form id="form-youtube">
+            <div class="form-group">
+                <label for="youtube-text ">Course Name</label>
+                <input type="text " class="form-control " id="youtube-text" />
+                <div class="invalid-feedback">
+                    Please enter course name
+                </div>
+            </div>
 
+            <div class="form-group">
+                <label for="youtube-link">Course Link</label>
+                <input type="text" class="form-control " id="youtube-link" />
+
+                <div class="invalid-feedback">
+                    Please enter course link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="youtube-upload" type="button" class="btn btn-primary">Upload Course</button>
+            </div>
+
+            <div id="result-youtube">
+                <h6></h6>
+            </div>
+        </form>
     </div>
     <hr>
-    <div class="col-lg-6 ">
+    <div class="col-lg-6">
+        <h3>Free Udemy Courses Upload</h3>
+        <form id="form-udemy">
+            <div class="form-group">
+                <label for="udemy-text">Course Name</label>
+                <input type="text" class="form-control " id="udemy-text" />
+
+                <div class="invalid-feedback">
+                    Please enter course name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="udemy-link ">Course Link</label>
+                <input type="text" class="form-control " id="udemy-link" />
+
+                <div class="invalid-feedback">
+                    Please enter course link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="udemy-upload" type="button" class="btn btn-primary">Upload Course</button>
+            </div>
+
+            <div id="result-udemy">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-lg-6">
+        <h3>NPTEL Lecture Upload</h3>
+        <form id="form-nptel">
+            <div class="form-group">
+                <label for="nptel-text">Lecture/Course Name</label>
+                <input type="text" class="form-control " id="nptel-text" />
+
+                <div class="invalid-feedback">
+                    Please enter course name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nptel-link">Lecture/Course Link</label>
+                <input type="text " class="form-control " id="nptel-link" />
+
+                <div class="invalid-feedback">
+                    Please enter course link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="nptel-upload" type="button" class="btn btn-primary">Upload Lecture/Course</button>
+            </div>
+
+            <div id="result-nptel">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="col-lg-6">
+        <h3>DSC Tutor Upload</h3>
+        <form id="form-dsc">
+            <div class="form-group">
+                <label for="dsc-text">Course Name</label>
+                <input type="text " class="form-control " id="dsc-text" />
+                <div class="invalid-feedback">
+                    Please enter course name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dsc-link">Course Link</label>
+                <input type="text " class="form-control" id="dsc-link" />
+                <div class="invalid-feedback">
+                    Please enter course link
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <button id="dsc-upload" type="button" class="btn btn-primary">Upload Course</button>
+            </div>
+
+            <div id="result-dsc">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+    <hr>
+
+    <div class="col-lg-6">
+        <h3>Standard Books Upload</h3>
+        <form id="form-book">
+            <div class="form-group">
+                <label for="book-text">Name</label>
+                <input type="text" class="form-control " id="book-text" />
+                <div class="invalid-feedback">
+                    Please enter book name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="book-file ">Select File</label>
+                <input type="file" class="form-control" id="book-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid book
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="progress">
+                    <div id="book-progress" class="progress-bar " style="width:0% ">0%</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="book-upload" type="button" class="btn btn-primary">Upload Book</button>
+            </div>
+
+            <div id="result-book">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="col-lg-6">
+        <h3>Best Blogs Upload</h3>
+        <form id="form-blog">
+            <div class="form-group">
+                <label for="blog-text">Blog Name</label>
+                <input type="text " class="form-control " id="blog-text" />
+                <div class="invalid-feedback">
+                    Please enter blog name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="blog-link">Blog Link</label>
+                <input type="text " class="form-control " id="blog-link" />
+                <div class="invalid-feedback">
+                    Please enter blog link
+                </div>
+            </div>
+
+
+            <div class="form-group ">
+                <button id="blog-upload" type="button" class="btn btn-primary">Upload Blog</button>
+            </div>
+
+            <div id="result-blog">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <hr>
+
+    <div class="col-lg-12">
+        <br>
         <h3>Raw Resources Bank</h3>
         <br>
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Status</td>
-                <td>
-                    <button type=" button " id="accept-res-btn ">Accept Resource</button>
-                </td>
-                <td>
-                    <button type=" button " id="reject-res-btn ">Reject Resource</button>
-                </td>
-                <td><button type="button " class="download-btn ">Download</button> </td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+
+                <tr>
+                    <td>Name</td>
+                    <td>Status</td>
+                    <td>Accept</td>
+                    <td>Reject</td>
+                    <td>Download</td>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
         </table>
     </div>
 </div>
+<script>
+    $("#res-text").addClass("is-invalid");
+    var value = document.getElementById("res-text");
+    var tech = "";
+    value.addEventListener("input", function() {
+        tech = this.value;
+        if (!tech) {
+            $("#res-text").addClass("is-invalid");
+            return;
+        } else {
+            $("#res-text").removeClass("is-invalid");
+            var technology = tech.toLowerCase().replace(" ", "").replace("#", "sharp").replace("++", "plusplus");
+
+
+            $("#pdf-upload").click(function() {
+                var validType = ["application/pdf"];
+
+                $("#pdf-text").removeClass("is-invalid");
+                $("#pdf-file").removeClass("is-invalid");
+
+                var title = $("#pdf-text").val();
+                var file = $("#pdf-file").prop("files")[0];
+
+                if (!title) {
+                    $("#pdf-text").addClass("is-invalid");
+                    return;
+                }
+
+                if (file == null) {
+                    $("#pdf-file").addClass("is-invalid");
+                    return;
+                }
+
+                if ($.inArray(file["type"], validType) < 0) {
+                    $("#pdf-file").addClass("is-invalid");
+                    return;
+                }
+
+
+
+                var database = firebase.database().ref("Education/" + technology + "/pdf/");
+
+                var name = file["name"];
+                var extension = name.substring(name.lastIndexOf("."), name.length);
+
+                var pdfName = new Date().getTime();
+
+                var storage = firebase.storage().ref("Education Resources/" + technology + "/PDF Books/" + pdfName + extension);
+                var uploadTask = storage.put(file);
+
+                uploadTask.on("state_changed",
+                    function progress(snapshot) {
+
+                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        $("#pdf-progress").html(percentage + "%");
+                        $("#pdf-progress").attr("style", "width:" + percentage + "%");
+
+
+                    },
+                    function error(err) {
+
+                    },
+
+                    function complete() {
+
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                            var pdfData = {
+                                "name": title,
+                                "link": downloadURL
+                            }
+
+                            database.push().set(pdfData, function(err) {
+                                if (err) {
+                                    $("#result-pdf").attr("class", "alert alert-danger");
+                                    $("#result-pdf").html(err.message);
+
+                                } else {
+                                    $("#result-pdf").attr("class", "alert alert-success");
+                                    $("#result-pdf").html("Resource Uploaded Successfully");
+
+
+                                }
+                                $("#form-pdf")[0].reset();
+                                $("#pdf-progress").html("Completed");
+                            });
+                        })
+                    })
+
+
+
+
+
+
+            })
+
+            $("#blog-upload").click(function() {
+                $("#blog-text").removeClass("is-invalid");
+                $("#blog-link").removeClass("is-invalid");
+
+                var title = $("#blog-text").val();
+                var link = $("#blog-link").val()
+
+
+                if (!title) {
+                    $("#blog-text").addClass("is-invalid");
+                    return;
+                }
+                if (!link) {
+                    $("#blog-link").addClass("is-invalid");
+                    return;
+                }
+
+                var data = firebase.database().ref("Education/" + technology + "/blogs/");
+
+                var dataS = {
+                    "name": title,
+                    "link": link
+                };
+                data.push().set(dataS, function(err) {
+                    if (err) {
+                        $("#result-blog").attr("class", "alert alert-danger");
+                        $("#result-blog").html(err.message);
+
+                    } else {
+                        $("#result-blog").attr("class", "alert alert-success");
+                        $("#result-blog").html("Blog Updated Successfully");
+
+
+                    }
+
+                    $("#form-blog")[0].reset();
+
+                })
+
+
+
+
+            })
+
+            $("#udemy-upload").click(function() {
+                $("#udemy-text").removeClass("is-invalid");
+                $("#udemy-link").removeClass("is-invalid");
+
+                var title = $("#udemy-text").val();
+                var link = $("#udemy-link").val()
+
+
+                if (!title) {
+                    $("#udemy-text").addClass("is-invalid");
+                    return;
+                }
+                if (!link) {
+                    $("#udemy-link").addClass("is-invalid");
+                    return;
+                }
+
+
+                var data = firebase.database().ref("Education/" + technology + "/udemy/");
+
+                var dataS = {
+                    "name": title,
+                    "link": link
+                };
+                data.push().set(dataS, function(err) {
+                    if (err) {
+                        $("#result-udemy").attr("class", "alert alert-danger");
+                        $("#result-udemy").html(err.message);
+
+                    } else {
+                        $("#result-udemy").attr("class", "alert alert-success");
+                        $("#result-udemy").html("Course Updated Successfully");
+
+
+                    }
+
+                    $("#form-udemy")[0].reset();
+
+                })
+
+
+
+            })
+
+            $("#youtube-upload").click(function() {
+                $("#youtube-text").removeClass("is-invalid");
+                $("#youtube-link").removeClass("is-invalid");
+
+                var title = $("#youtube-text").val();
+                var link = $("#youtube-link").val()
+
+
+                if (!title) {
+                    $("#youtube-text").addClass("is-invalid");
+                    return;
+                }
+                if (!link) {
+                    $("#youtube-link").addClass("is-invalid");
+                    return;
+                }
+
+
+                var data = firebase.database().ref("Education/" + technology + "/youtube/");
+
+                var dataS = {
+                    "name": title,
+                    "link": link
+                };
+                data.push().set(dataS, function(err) {
+                    if (err) {
+                        $("#result-youtube").attr("class", "alert alert-danger");
+                        $("#result-youtube").html(err.message);
+
+                    } else {
+                        $("#result-youtube").attr("class", "alert alert-success");
+                        $("#result-youtube").html("Course Updated Successfully");
+
+
+                    }
+
+                    $("#form-youtube")[0].reset();
+
+                })
+
+
+
+            })
+
+            $("#dsc-upload").click(function() {
+                $("#dsc-text").removeClass("is-invalid");
+                $("#dsc-link").removeClass("is-invalid");
+
+                var title = $("#dsc-text").val();
+                var link = $("#dsc-link").val()
+
+
+                if (!title) {
+                    $("#dsc-text").addClass("is-invalid");
+                    return;
+                }
+                if (!link) {
+                    $("#dsc-link").addClass("is-invalid");
+                    return;
+                }
+
+
+
+                var data = firebase.database().ref("Education/" + technology + "/dsc/");
+
+                var dataS = {
+                    "name": title,
+                    "link": link
+                };
+                data.push().set(dataS, function(err) {
+                    if (err) {
+                        $("#result-dsc").attr("class", "alert alert-danger");
+                        $("#result-dsc").html(err.message);
+
+                    } else {
+                        $("#result-dsc").attr("class", "alert alert-success");
+                        $("#result-dsc").html("Course Updated Successfully");
+
+
+                    }
+
+                    $("#form-dsc")[0].reset();
+
+                })
+
+
+            })
+
+            $("#nptel-upload").click(function() {
+                $("#nptel-text").removeClass("is-invalid");
+                $("#nptel-link").removeClass("is-invalid");
+
+                var title = $("#nptel-text").val();
+                var link = $("#nptel-link").val()
+
+
+                if (!title) {
+                    $("#nptel-text").addClass("is-invalid");
+                    return;
+                }
+                if (!link) {
+                    $("#nptel-link").addClass("is-invalid");
+                    return;
+                }
+
+
+                var data = firebase.database().ref("Education/" + technology + "/nptel/");
+
+                var dataS = {
+                    "name": title,
+                    "link": link
+                };
+                data.push().set(dataS, function(err) {
+                    if (err) {
+                        $("#result-nptel").attr("class", "alert alert-danger");
+                        $("#result-nptel").html(err.message);
+
+                    } else {
+                        $("#result-nptel").attr("class", "alert alert-success");
+                        $("#result-nptel").html("Course Updated Successfully");
+
+
+                    }
+
+                    $("#form-nptel")[0].reset();
+
+                })
+
+
+
+            })
+
+            $("#book-upload").click(function() {
+                var validType = ["application/pdf"];
+
+                $("#book-text").removeClass("is-invalid");
+                $("#book-file").removeClass("is-invalid");
+
+                var title = $("#book-text").val();
+                var file = $("#book-file").prop("files")[0];
+
+                if (!title) {
+                    $("#book-text").addClass("is-invalid");
+                    return;
+                }
+
+                if (file == null) {
+                    $("#book-file").addClass("is-invalid");
+                    return;
+                }
+
+                if ($.inArray(file["type"], validType) < 0) {
+                    $("#book-file").addClass("is-invalid");
+                    return;
+                }
+
+
+
+                var database = firebase.database().ref("Education/" + technology + "/books/");
+
+                var name = file["name"];
+                var extension = name.substring(name.lastIndexOf("."), name.length);
+
+                var bookName = new Date().getTime();
+
+                var storage = firebase.storage().ref("Education Resources/" + technology + "/Standard Books/" + bookName + extension);
+                var uploadTask = storage.put(file);
+
+                uploadTask.on("state_changed",
+                    function progress(snapshot) {
+
+                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        $("#book-progress").html(percentage + "%");
+                        $("#book-progress").attr("style", "width:" + percentage + "%");
+
+
+                    },
+                    function error(err) {
+
+                    },
+
+                    function complete() {
+
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                            var bookData = {
+                                "name": title,
+                                "link": downloadURL
+                            }
+
+                            database.push().set(bookData, function(err) {
+                                if (err) {
+                                    $("#result-book").attr("class", "alert alert-danger");
+                                    $("#result-book").html(err.message);
+
+                                } else {
+                                    $("#result-book").attr("class", "alert alert-success");
+                                    $("#result-book").html("Resource Uploaded Successfully");
+
+
+                                }
+                                $("#form-book")[0].reset();
+                                $("#book-progress").html("Completed");
+                            });
+                        })
+                    })
+
+
+
+
+            })
+        }
+
+
+    });
+</script>

@@ -1,74 +1,217 @@
 <strong>
-    <h2 style="font-family:fantasy">Event</h2></strong>
+    <h2 style="font-family:fantasy">Competitions</h2></strong>
 <hr color=red height=20px/>
 <div class="row">
-    <div class="col-lg-5">
-        <form>
-            <h3>Post New Event</h3>
-            <br>
+    <div class="col-lg-4">
+        <h3>Post New Event</h3>
+        <form id="event">
             <div class="form-group">
-                <h5> <label for="name">Name</label></h5>
-                <input type="text" class="form-control" id="name-text" />
+                <label for="event-name">Name</label>
+                <input type="text" class="form-control" id="event-name" />
+                <div class="invalid-feedback">
+                    Please enter event name
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="intro">Info</label></h5>
-                <input type="text" class="form-control" id="intro-text" />
+                <label for="event-info">Info</label>
+                <input type="text" class="form-control" id="event-info" />
+                <div class="invalid-feedback">
+                    Please enter event info
+                </div>
+
             </div>
             <div class="form-group">
-                <h5> <label for="des">Description</label></h5>
-                <input type="text" class="form-control" id="des-text" />
+                <label for="event-des">Description</label>
+                <input type="text" class="form-control" id="event-des" />
+                <div class="invalid-feedback">
+                    Please enter event description
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="file">Poster</label></h5>
-                <input type="file" class="form-control" id="poster-file" />
+                <label for="event-file">Poster</label>
+                <input type="file" class="form-control" id="event-file" />
+                <div class="invalid-feedback">
+                    Please choose valid poster
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="des">Date</label></h5>
-                <input type="date" class="form-control" id="des-text" />
+                <label for="event-date">Date</label>
+                <input type="date" class="form-control" id="event-date" />
+                <div class="invalid-feedback">
+                    Please enter event date
+                </div>
             </div>
 
             <div class="form-group">
                 <div class="progress">
-                    <div class="progress-bar" style="width:0%">0%</div>
+                    <div id="event-progress" class="progress-bar" style="width:0%">0%</div>
                 </div>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-primary">Publish Event</button>
+                <button id="event-upload" type="button" class="btn btn-primary">Publish Event</button>
             </div>
-            <div id="result-news">
-                <h6>Published!</h6>
+            <div id="result-event">
+                <h6></h6>
             </div>
         </form>
 
 
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-8">
         <h3>Registered Candidates</h3>
         <br>
-        <h5><label for="res">Event</label> </h5>
-
-
-        <input list="technology " class="form-control " id="res-text " />
-        <datalist id="technology ">
-            <option value="C ">
+        <label for="reg-text">Event</label>
+        <input list="technology " class="form-control " id="reg-text" />
+        <datalist id="technology">
+            <option value="C">
         </datalist>
         <br>
-        <button type=" button ">Export Excel</button>
+        <button id="event-export" type="button">Export Excel</button>
         <br>
         <br>
-        <table>
-            <tr>
-                <td>Name </td>
-                <td>Mobile </td>
-                <td>Email </td>
-                <td>Date Of Registration </td>
-                <td>College </td>
-                <td>Course </td>
-                <td>Branch </td>
-                <td>Refferal Code </td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+                <td>Name</td>
+                <td>Mobile</td>
+                <td>Email</td>
+                <td>D.O.R</td>
+                <td>College</td>
+                <td>Course</td>
+                <td>Branch</td>
+                <td>R.C</td>
+            </thead>
+            <tbody>
+
+            </tbody>
         </table>
 
 
     </div>
 </div>
+<script>
+    $("#event-upload").click(function() {
+
+        var validFormat = ["image/jpeg", "image/png", "image/jpg"];
+
+        $("#event-name").removeClass("is-invalid");
+        $("#event-info").removeClass("is-invalid");
+        $("#event-des").removeClass("is-invalid");
+        $("#event-file").removeClass("is-invalid");
+        $("#event-date").removeClass("is-invalid");
+
+
+        var title = $("#event-name").val();
+        var file = $("#event-file").prop("files")[0];
+        var info = $("#event-info").val();
+        var date = $("#event-date").val();
+        var des = $("#event-des").val();
+
+        if (!title) {
+            $("#event-name").addClass("is-invalid");
+            return;
+        }
+        if (!info) {
+            $("#event-info").addClass("is-invalid");
+            return;
+        }
+        if (file == null) {
+            $("#event-file").addClass("is-invalid");
+            return;
+        }
+        if ($.inArray(file["type"], validFormat) < 0) {
+            $("#event-file").addClass("is-invalid");
+            return;
+        }
+        if (!des) {
+            $("#event-des").addClass("is-invalid");
+            return;
+        }
+        if (!date) {
+            $("#event-date").addClass("is-invalid");
+            return;
+        }
+
+        var datee = new Date(date);
+        var month = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "November",
+            "December"
+        ];
+
+        var mon = datee.getMonth();
+
+        function dete() {
+            var days = datee.getDate();
+            return days < 10 ? '0' + days : '' + days;
+        }
+
+        var year = datee.getFullYear();
+        varaDate = dete() + " " + month[mon] + " " + year;
+        console.log(varaDate);
+
+
+
+
+        var database = firebase.database().ref("Events/");
+
+        var name = file["name"];
+        var extension = name.substring(name.lastIndexOf("."), name.length);
+
+        var posterName = new Date().getTime();
+
+        var storage = firebase.storage().ref("Events" + "/" + posterName + extension);
+        var uploadTask = storage.put(file);
+
+        uploadTask.on("state_changed",
+            function progress(snapshot) {
+
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $("#event-progress").html(percentage + "%");
+                $("#event-progress").attr("style", "width:" + percentage + "%");
+
+
+            },
+            function error(err) {
+
+            },
+
+            function complete() {
+
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
+                    var eventData = {
+                        "date": varaDate,
+                        "description": des,
+                        "shortdes": info,
+                        "pic": downloadURL,
+                        "title": title
+                    };
+
+                    database.push().set(eventData, function(err) {
+                        if (err) {
+                            $("#result-event").attr("class", "alert alert-danger");
+                            $("#result-event").html(err.message);
+
+                        } else {
+                            $("#result-event").attr("class", "alert alert-success");
+                            $("#result-event").html("Event Posted Successfully");
+
+
+                        }
+
+                        $("#event")[0].reset();
+                        $("#event-progress").html("Completed ");
+                    })
+
+                });
+            });
+    })
+</script>

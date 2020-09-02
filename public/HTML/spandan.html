@@ -2,101 +2,441 @@
     <h2 style="font-family:fantasy">Tech Spandan</h2></strong>
 <hr color=red height=20px/>
 <div class="row">
-    <div class="col-lg-3">
-        <form>
+    <div class="col-lg-6">
+        <form id="spandan">
             <h3>Post New Event</h3>
             <br>
             <div class="form-group">
-                <h5> <label for="name">Name</label></h5>
-                <input type="text" class="form-control" id="name-text" />
+                <label for="spa-name">Name</label>
+                <input type="text" class="form-control" id="spa-name" />
+                <div class="invalid-feedback">
+                    Please enter event name
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="intro">Info</label></h5>
-                <input type="text" class="form-control" id="intro-text" />
+                <label for="spa-info">Info</label>
+                <input type="text" class="form-control" id="spa-info" />
+                <div class="invalid-feedback">
+                    Please enter event info
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="des">Description</label></h5>
-                <input type="text" class="form-control" id="des-text" />
+                <label for="spa-des">Description</label>
+                <input type="text" class="form-control" id="spa-des" />
+                <div class="invalid-feedback">
+                    Please enter event description
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="file">Poster</label></h5>
-                <input type="file" class="form-control" id="poster-file" />
+                <label for="spa-file">Poster</label>
+                <input type="file" class="form-control" id="spa-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid poster
+                </div>
             </div>
             <div class="form-group">
-                <h5> <label for="des">Date</label></h5>
-                <input type="date" class="form-control" id="des-text" />
+                <label for="spa-date">Date</label>
+                <input type="date" class="form-control" id="spa-date" />
+                <div class="invalid-feedback">
+                    Please enter event date
+                </div>
             </div>
 
             <div class="form-group">
                 <div class="progress">
-                    <div class="progress-bar" style="width:0%">0%</div>
+                    <div id="spa-progress" class="progress-bar" style="width:0%">0%</div>
                 </div>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-primary">Publish Event</button>
+                <button id="spa-upload" type="button" class="btn btn-primary">Publish Event</button>
             </div>
-            <div id="result-news">
-                <h6>Published!</h6>
+            <div id="result-spa">
+                <h6></h6>
             </div>
         </form>
 
 
     </div>
 
-    <div class="col-lg-3">
+    <div class="col-lg-6">
         <h3>Upload Resource</h3>
-        <form>
+        <form id="resource">
             <br>
             <div class="form-group">
-                <h5> <label for="name">Name</label></h5>
-                <input type="text" class="form-control" id="name-text" />
-            </div>
-            <div class="form-group">
-                <h5> <label for="intro">Image</label></h5>
-                <input type="file" class="form-control" id="intro-text" />
-            </div>
-            <div class="form-group">
-                <div class="progress">
-                    <div class="progress-bar" style="width:0%">0%</div>
+                <label for="res-name">Name</label>
+                <input type="text" class="form-control" id="res-name" />
+                <div class="invalid-feedback">
+                    Please enter resource name
                 </div>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-primary">Publish Image</button>
+                <label for="res-year">Year</label>
+                <input placeholder="2011-2020" type="number" class="form-control" id="res-year" />
+                <div class="invalid-feedback">
+                    Please enter a valid year
+                </div>
             </div>
-            <div id="result-news">
-                <h6>Published!</h6>
+            <div class="form-group">
+                <label for="res-file">Image</label>
+                <input type="file" class="form-control" id="res-file" />
+                <div class="invalid-feedback">
+                    Please choose a picture
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="res-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="res-upload" type="button" class="btn btn-primary">Publish Image</button>
+            </div>
+            <div id="result-res">
+                <h6></h6>
             </div>
 
 
         </form>
     </div>
     <div class="col-lg-6">
+        <br>
+        <h3>Update About</h3>
+        <form id="about">
+            <hr>
+            <div>
+                <label for="about-file">File</label>
+                <input type="file" class="form-control" id="about-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid file
+                </div>
+            </div><br>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="about-progress" class="progress-bar" style="width:0% ">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="about-upload" type="button" class="btn btn-primary">Publish Policy</button>
+            </div>
+            <div id="result-about">
+                <h6></h6>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-lg-12">
         <h3>Registered Candidates</h3>
         <br>
-        <h5><label for="res">Events</label> </h5>
+        <label for="res-text">Event</label>
 
-
-        <input list="technology " class="form-control " id="res-text " />
+        <input list="technology " class="form-control " id="res-text" />
         <datalist id="technology ">
             <option value="C ">
         </datalist>
         <br>
         <button type=" button ">Export Excel</button>
         <br>
-        <br>
-        <table>
-            <tr>
-                <td>Name </td>
-                <td>Mobile </td>
-                <td>Email </td>
-                <td>Date Of Registration </td>
-                <td>College </td>
-                <td>Course </td>
-                <td>Branch </td>
-                <td>Refferal Code </td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Mobile</td>
+                    <td>Email</td>
+                    <td>D.O.R</td>
+                    <td>College</td>
+                    <td>Course</td>
+                    <td>Branch</td>
+                    <td>R.C</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
         </table>
 
 
     </div>
 </div>
+
+<script>
+    $("#spa-upload").click(function() {
+
+        var validFormat = ["image/png", "image/jpg", "image/jpeg"];
+
+        $("#spa-name").removeClass("is-invalid");
+        $("#spa-info").removeClass("is-invalid");
+        $("#spa-des").removeClass("is-invalid");
+        $("#spa-file").removeClass("is-invalid");
+        $("#spa-date").removeClass("is-invalid");
+
+
+        var title = $("#spa-name").val();
+        var file = $("#spa-file").prop("files")[0];
+        var info = $("#spa-info").val();
+        var date = $("#spa-date").val();
+        var des = $("#spa-des").val();
+
+        if (!title) {
+            $("#spa-name").addClass("is-invalid");
+            return;
+        }
+        if (!info) {
+            $("#spa-info").addClass("is-invalid");
+            return;
+        }
+        if (file == null) {
+            $("#spa-file").addClass("is-invalid");
+            return;
+        }
+        if ($.inArray(file["type"], validFormat) < 0) {
+            $("#spa-file").addClass("is-invalid");
+            return;
+        }
+        if (!des) {
+            $("#spa-des").addClass("is-invalid");
+            return;
+        }
+        if (!date) {
+            $("#spa-date").addClass("is-invalid");
+            return;
+        }
+
+        var datee = new Date(date);
+        var month = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "November",
+            "December"
+        ];
+
+        var mon = datee.getMonth();
+
+        function dete() {
+            var days = datee.getDate();
+            return days < 10 ? '0' + days : '' + days;
+        }
+
+        var year = datee.getFullYear();
+        varaDate = dete() + " " + month[mon] + " " + year;
+        console.log(varaDate);
+
+
+
+
+        var database = firebase.database().ref("SpandanEvents/");
+
+        var name = file["name"];
+        var extension = name.substring(name.lastIndexOf("."), name.length);
+
+        var posterName = new Date().getTime();
+
+        var storage = firebase.storage().ref("Tech Spandan" + "/" + posterName + extension);
+        var uploadTask = storage.put(file);
+
+        uploadTask.on("state_changed",
+            function progress(snapshot) {
+
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $("#spa-progress").html(percentage + "%");
+                $("#spa-progress").attr("style", "width:" + percentage + "%");
+
+
+            },
+            function error(err) {
+
+            },
+
+            function complete() {
+
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
+                    var spaData = {
+                        "date": varaDate,
+                        "description": des,
+                        "shortdes": info,
+                        "pic": downloadURL,
+                        "title": title
+                    };
+
+                    database.push().set(spaData, function(err) {
+                        if (err) {
+                            $("#result-spa").attr("class", "alert alert-danger");
+                            $("#result-spa").html(err.message);
+
+                        } else {
+                            $("#result-spa").attr("class", "alert alert-success");
+                            $("#result-spa").html("Spandan Event Posted Successfully");
+
+
+                        }
+
+                        $("#spandan")[0].reset();
+                        $("#spa-progress ").html("Completed ");
+                    })
+
+                });
+            });
+    })
+    $("#res-upload").click(function() {
+
+        var validFormat = ["image/png", "image/jpg", "image/jpeg"];
+
+        $("#res-name").removeClass("is-invalid");
+        $("#res-file").removeClass("is-invalid");
+        $("#res-year").removeClass("is-invalid");
+
+
+
+        var title = $("#res-name").val();
+        var file = $("#res-file").prop("files")[0];
+        var year = $("#res-year").val();
+
+
+        if (!title) {
+            $("#res-name").addClass("is-invalid");
+            return;
+        }
+        if (!year) {
+            $("#res-year").addClass("is-invalid");
+            return;
+        }
+        if (year > 2020) {
+            $("#res-year").addClass("is-invalid");
+            return;
+        }
+        if (file == null) {
+            $("#res-file").addClass("is-invalid");
+            return;
+        }
+        if ($.inArray(file["type"], validFormat) < 0) {
+            $("#res-file").addClass("is-invalid");
+            return;
+        }
+
+
+
+
+        var database = firebase.database().ref("SpandanResources/" + year);
+
+        var name = file["name"];
+        var extension = name.substring(name.lastIndexOf("."), name.length);
+
+        var posterName = new Date().getTime();
+
+        var storage = firebase.storage().ref("Tech Spandan" + "/" + posterName + extension);
+        var uploadTask = storage.put(file);
+
+        uploadTask.on("state_changed",
+            function progress(snapshot) {
+
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $("#res-progress").html(percentage + "%");
+                $("#res-progress").attr("style", "width:" + percentage + "%");
+
+
+            },
+            function error(err) {
+
+            },
+
+            function complete() {
+
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
+                    var resData = {
+                        "pic": downloadURL,
+                        "title": title
+                    };
+
+                    database.push().set(resData, function(err) {
+                        if (err) {
+                            $("#result-res").attr("class", "alert alert-danger");
+                            $("#result-res").html(err.message);
+
+                        } else {
+                            $("#result-res").attr("class", "alert alert-success");
+                            $("#result-res").html("Resource Added Successfully");
+
+
+                        }
+
+                        $("#resource")[0].reset();
+                        $("#res-progress").html("Completed ");
+                    })
+
+                });
+            });
+    })
+    $("#about-upload").click(function() {
+        $("#about-file").removeClass("is-invalid");
+
+        var validType = ["application/pdf"];
+
+
+        var file = $("#about-file").prop("files")[0];
+
+        if (file == null) {
+            $("#about-file").addClass("is-invalid");
+            return;
+        }
+
+        if ($.inArray(file["type"], validType) < 0) {
+            $("#about-file").addClass("is-invalid");
+            return;
+        }
+
+
+
+        var database = firebase.database().ref("SpandanResources/aboutpdf");
+
+        var name = file["name"];
+        var extension = name.substring(name.lastIndexOf("."), name.length);
+
+
+
+        var storage = firebase.storage().ref("Spandan Resources/" + "about" + extension);
+        var uploadTask = storage.put(file);
+
+        uploadTask.on("state_changed",
+            function progress(snapshot) {
+
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $("#about-progress").html(percentage + "%");
+                $("#about-progress").attr("style", "width:" + percentage + "%");
+
+
+            },
+            function error(err) {
+
+            },
+
+            function complete() {
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
+                    database.set(downloadURL, function(err) {
+                        if (err) {
+                            $("#result-about").attr("class", "alert alert-danger");
+                            $("#result-about").html(err.message);
+
+                        } else {
+                            $("#result-about").attr("class", "alert alert-success");
+                            $("#result-about").html("About Spandan Updated Successfully");
+
+
+                        }
+                        $("#about")[0].reset();
+                        $("#about-progress").html("Completed");
+                    });
+                })
+            })
+
+    })
+</script>

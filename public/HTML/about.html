@@ -1,98 +1,390 @@
 <strong>
     <h2 style="font-family:fantasy">About Us</h2></strong>
 <hr color=red height=20px/>
+<h3>Add Member</h3>
+
+<div class="col-lg-5" style="margin-left:-1.3%">
+    <label for="team-team">Select Team</label>
+    <input list="technology" class="form-control" id="team-team" />
+    <div class="invalid-feedback">
+        Please choose a team
+    </div>
+    <datalist id="technology">
+        <option value="Board">
+        <option value="Management Team">
+        <option value="Technical Team">
+        <option value="Designer Team">
+        <option value="Members">
+    </datalist>
+
+</div>
 <div class="row">
     <div class="col-lg-6">
-        <form>
+        <form id="team">
             <div class="form-group">
-                <h3>Add Member</h3>
-                <br>
-                <h4><label for="res">Select Team</label> </h4>
-                <input list="technology" class="form-control " id="res-text " />
-                <datalist id="technology">
-                    <option value="Board">
-                    <option value="Management Team">
-                    <option value="Technical Team">
-                    <option value="Designer Team">
-                    <option value="Members">
-                </datalist>
-
+                <h3>Person Profile</h3>
+                <label for="link">Name</label>
+                <input type="team-name" class="form-control" id="team-name" />
+                <div class="invalid-feedback">
+                    Please enter a name
+                </div>
             </div>
-            <hr>
-            <div>
-                <div>
-                    <h3>Person Profile</h3>
-                    <br>
-                    <h5><label for="link ">Name</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Profile Picture (.jpg)</label> </h5>
-                    <input type="file" class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Bio</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Position</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Skills</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Projects</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Specialization</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Facebook Profile</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                    <br>
-                    <h5><label for="link ">LinkedIn Profile</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                    <br>
-                    <h5><label for="link ">Instagram Profile</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                    <br>
-                    <h5><label for="link ">HackerRank Profile</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                    <br>
-                    <h5><label for="link ">GitHub Profile</label> </h5>
-                    <input type="text " class="form-control " id="link-text " />
-                    <br>
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
-                    </div>
+
+            <div class="form-group">
+                <label for="team-profile">Profile Picture (.jpg)</label>
+                <input type="file" class="form-control" id="team-profile" />
+                <div class="invalid-feedback">
+                    Please choose a valid profile image
                 </div>
-                <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Register</button>
+            </div>
+            <div class="form-group">
+                <label for="team-bio">Bio</label>
+                <input type="text" class="form-control" id="team-bio" />
+                <div class="invalid-feedback">
+                    Please enter your bio
                 </div>
-                <div id="result-course ">
-                    <h6>Registered!</h6>
+            </div>
+
+            <div class="form-group">
+                <label for="team-position">Position</label>
+                <input type="text" class="form-control" id="team-position" />
+                <div class="invalid-feedback">
+                    Please enter your position
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-skill">Skills</label>
+                <input type="text" class="form-control" id="team-skill" />
+                <div class="invalid-feedback">
+                    Please enter your skills
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-project">Projects</label>
+                <input type="text" class="form-control" id="team-project" />
+                <div class="invalid-feedback">
+                    Please enter your projects
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-special">Specialization</label>
+                <input type="text" class="form-control" id="team-special" />
+                <div class="invalid-feedback">
+                    Please enter your specialization
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-facebook">Facebook Profile</label>
+                <input type="text " class="form-control " id="team-facebook" />
+                <div class="invalid-feedback">
+                    Please enter your facebook profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-link">LinkedIn Profile</label>
+                <input type="text" class="form-control" id="team-link" />
+                <div class="invalid-feedback">
+                    Please enter your linkedin profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-instagram">Instagram Profile</label> </h5>
+                <input type="text" class="form-control " id="team-instagram" />
+                <div class="invalid-feedback">
+                    Please enter your instagram profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-hack">HackerRank Profile</label>
+                <input type="text" class="form-control " id="team-hack" />
+                <div class="invalid-feedback">
+                    Please enter your hackerrank profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-git">GitHub Profile</label>
+                <input type="text" class="form-control" id="team-git" />
+                <div class="invalid-feedback">
+                    Please enter your github profile link
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="team-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="team-upload" type="button" class="btn btn-primary ">Register</button>
+            </div>
+            <div id="result-team">
+                <h6></h6>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-lg-6">
+        <h3>Upload About File</h3>
+        <form id="about">
+            <div class="form-group">
+                <label for="about-file">Select File</label>
+                <input type="file" class="form-control" id="about-file" />
+                <div class=" invalid-feedback ">
+                    Please choose a valid file
+                </div>
+            </div> <br>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="about-progress" class="progress-bar" style="width:0% ">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="about-upload" type="button" class="btn btn-primary">Upload About DSC</button>
+            </div>
+            <div id="result-about">
+                <h6></h6>
             </div>
         </form>
     </div>
-    <div class="col-lg-6 ">
-        <h3>Upload About File</h3>
-        <div>
-            <br>
-            <h5><label for="pdf ">Name</label> </h5>
-            <input type="text " class="form-control " id="pdf-text " />
-            <h5><label for="pdf ">Select File</label> </h5>
-            <input type="file " class="form-control " id="pdf-file " />
-        </div> <br>
-        <div class="form-group ">
-            <div class="progress ">
-                <div class="progress-bar " style="width:0% ">0%</div>
-            </div>
-        </div>
-        <div class="form-group ">
-            <button type="button " class="btn btn-primary ">Upload PDF</button>
-        </div>
-        <div id="result-pdf ">
-            <h6>Uploaded!</h6>
-        </div>
-    </div>
 </div>
+<script>
+    $("#about-upload").click(function() {
+        $("#about-file").removeClass("is-invalid");
+
+        var validType = ["application/pdf"];
+
+
+        var file = $("#about-file").prop("files")[0];
+
+        if (file == null) {
+            $("#about-file").addClass("is-invalid");
+            return;
+        }
+
+        if ($.inArray(file["type"], validType) < 0) {
+            $("#about-file").addClass("is-invalid");
+            return;
+        }
+
+
+
+        var database = firebase.database().ref("About/aboutpdf");
+
+        var name = file["name"];
+        var extension = name.substring(name.lastIndexOf("."), name.length);
+
+
+
+        var storage = firebase.storage().ref("About/" + "aboutpdf" + extension);
+        var uploadTask = storage.put(file);
+
+        uploadTask.on("state_changed",
+            function progress(snapshot) {
+
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $("#about-progress").html(percentage + "%");
+                $("#about-progress").attr("style", "width:" + percentage + "%");
+
+
+            },
+            function error(err) {
+
+            },
+
+            function complete() {
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
+                    database.set(downloadURL, function(err) {
+                        if (err) {
+                            $("#result-about").attr("class", "alert alert-danger");
+                            $("#result-about").html(err.message);
+
+                        } else {
+                            $("#result-about").attr("class", "alert alert-success");
+                            $("#result-about ").html("About DSC Updated Successfully");
+
+
+                        }
+                        $("#about")[0].reset();
+                        $("#about-progress").html("Completed");
+                    });
+                })
+            })
+
+    })
+
+    $("#team-team").addClass("is-invalid");
+    var value = document.getElementById("team-team");
+    var mem = "";
+    value.addEventListener("input", function() {
+        var data = this.value;
+        if (!data) {
+            $("#team-team").addClass("is-invalid");
+            return;
+        } else {
+            $("#team-team").removeClass("is-invalid");
+            mem = data.replace("anagement ", "").replace("echnical ", "").replace("esigner ", "");
+
+            $("#team-upload").click(function() {
+
+                var validType = ["image/png", "image/jpg", "image/jpeg"];
+
+                $("#team-name").removeClass("is-invalid");
+                $("#team-profile").removeClass("is-invalid");
+                $("#team-bio").removeClass("is-invalid");
+                $("#team-position").removeClass("is-invalid");
+                $("#team-skill").removeClass("is-invalid");
+                $("#team-special").removeClass("is-invalid");
+                $("#team-git").removeClass("is-invalid");
+                $("#team-hack").removeClass("is-invalid");
+                $("#team-instagram").removeClass("is-invalid");
+                $("#team-facebook").removeClass("is-invalid");
+                $("#team-link").removeClass("is-invalid");
+                $("#team-project").removeClass("is-invalid");
+
+
+                var title = $("#team-name").val();
+                var profile = $("#team-profile").prop("files")[0];
+                var bio = $("#team-bio").val();
+                var position = $("#team-position").val()
+                var skills = $("#team-skill").val()
+                var special = $("#team-special").val();
+                var github = $("#team-git").val();
+                var hack = $("#team-hack").val();
+                var instagram = $("#team-instagram").val();
+                var facebook = $("#team-facebook").val();
+                var linkedin = $("#team-link").val();
+                var project = $("#team-project").val();
+
+                if (!title) {
+                    $("#team-name").addClass("is-invalid");
+                    return;
+                }
+                if (profile == null) {
+                    $("#team-profile").addClass("is-invalid");
+                    return;
+                }
+                if (!bio) {
+                    $("#team-bio").addClass("is-invalid");
+                    return;
+                }
+                if (!position) {
+                    $("#team-position").addClass("is-invalid");
+                    return;
+                }
+                if (!skills) {
+                    $("#team-skill").addClass("is-invalid");
+                    return;
+                }
+                if (!project) {
+                    $("#team-project").addClass("is-invalid");
+                    return;
+                }
+
+                if (!special) {
+                    $("#team-special").addClass("is-invalid");
+                    return;
+                }
+                if (!facebook) {
+                    $("#team-facebook").addClass("is-invalid");
+                    return;
+                }
+                if (!linkedin) {
+                    $("#team-link").addClass("is-invalid");
+                    return;
+                }
+                if (!instagram) {
+                    $("#team-instagram").addClass("is-invalid");
+                    return;
+                }
+                if (!hack) {
+                    $("#team-hack").addClass("is-invalid");
+                    return;
+                }
+
+
+                if (!github) {
+                    $("#team-git").addClass("is-invalid");
+                    return;
+                }
+
+
+
+
+                if ($.inArray(profile["type"], validType) < 0) {
+                    $("#team-profile").addClass("is-invalid");
+                    return;
+                }
+
+
+                var database = firebase.database().ref("About/" + mem + "/");
+
+                var name = profile["name"];
+                var extension = name.substring(name.lastIndexOf("."), name.length);
+
+                var proName = new Date().getTime();
+
+                var storage = firebase.storage().ref("About/" + mem + "/" + proName + extension);
+                var uploadTask = storage.put(profile);
+
+                uploadTask.on("state_changed",
+                    function progress(snapshot) {
+
+                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        $("#team-progress").html(percentage + "%");
+                        $("#team-progress").attr("style", "width:" + percentage + "%");
+
+
+                    },
+                    function error(err) {
+
+                    },
+
+                    function complete() {
+
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                            var teamData = {
+                                "bio": bio,
+                                "dp": downloadURL,
+                                "fb": facebook,
+                                "git": github,
+                                "hackerrank": hack,
+                                "insta": instagram,
+                                "linkdin": linkedin,
+                                "name": title,
+                                "post": position,
+                                "projects": project,
+                                "skills": skills,
+                                "specia": special
+
+                            };
+
+                            database.push().set(teamData, function(err) {
+                                if (err) {
+                                    $("#result-team").attr("class", "alert alert-danger");
+                                    $("#result-team").html(err.message);
+
+                                } else {
+                                    $("#result-team").attr("class", "alert alert-success");
+                                    $("#result-team").html("Person Added Successfully");
+
+
+                                }
+                                $("#team")[0].reset();
+                                $("#team-progress").html("Completed");
+                            });
+                        })
+                    })
+
+            })
+
+        }
+    })
+</script>

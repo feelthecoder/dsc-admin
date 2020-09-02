@@ -2,24 +2,26 @@
     <h2 style="font-family:fantasy">Privacy Policy</h2></strong>
 <hr color=red height=20px/>
 <div class="col-lg-8">
-
-    <form>
-        <h3>Upload Privacy Policy</h3>
-        <hr> <br>
+    <h3>Upload Privacy Policy</h3>
+    <form id="policy">
+        <hr>
         <div>
-            <h5><label for="file">File</label></h5>
-            <input type="file" class="form-control" id="file" />
-        </div>
-        <div class="form-group ">
-            <div class="progress ">
-                <div class="progress-bar " style="width:0% ">0%</div>
+            <label for="policy-file">File</label>
+            <input type="file" class="form-control" id="policy-file" />
+            <div class="invalid-feedback">
+                Please choose a valid file
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="progress">
+                <div id="policy-progress" class="progress-bar" style="width:0% ">0%</div>
             </div>
         </div>
-        <div class="form-group ">
-            <button type="button " class="btn btn-primary ">Publish Policy</button>
+        <div class="form-group">
+            <button id="policy-upload" type="button" class="btn btn-primary">Publish Policy</button>
         </div>
-        <div id="result-news ">
-            <h6>Published!</h6>
+        <div id="result-policy">
+            <h6></h6>
         </div>
     </form>
 </div>
@@ -29,3 +31,69 @@
     <hr>
     <br> A PDF FILE OF POLICY SHOWN HERE
 </div>
+<script>
+    $("#policy-upload").click(function() {
+        $("#policy-file").removeClass("is-invalid");
+
+        var validType = ["application/pdf"];
+
+
+        var file = $("#policy-file").prop("files")[0];
+
+        if (file == null) {
+            $("#policy-file").addClass("is-invalid");
+            return;
+        }
+
+        if ($.inArray(file["type"], validType) < 0) {
+            $("#policy-file").addClass("is-invalid");
+            return;
+        }
+
+
+
+        var database = firebase.database().ref("About/policy");
+
+        var name = file["name"];
+        var extension = name.substring(name.lastIndexOf("."), name.length);
+
+
+
+        var storage = firebase.storage().ref("About/" + "policy" + extension);
+        var uploadTask = storage.put(file);
+
+        uploadTask.on("state_changed",
+            function progress(snapshot) {
+
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $("#policy-progress").html(percentage + "%");
+                $("#policy-progress").attr("style", "width:" + percentage + "%");
+
+
+            },
+            function error(err) {
+
+            },
+
+            function complete() {
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+
+                    database.set(downloadURL, function(err) {
+                        if (err) {
+                            $("#result-policy").attr("class", "alert alert-danger");
+                            $("#result-policy").html(err.message);
+
+                        } else {
+                            $("#result-policy").attr("class", "alert alert-success");
+                            $("#result-policy").html("Privacy Policy Uploaded Successfully");
+
+
+                        }
+                        $("#policy")[0].reset();
+                        $("#policy-progress").html("Completed");
+                    });
+                })
+            })
+
+    })
+</script>
