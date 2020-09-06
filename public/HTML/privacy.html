@@ -1,7 +1,7 @@
 <strong>
     <h2 style="font-family:fantasy">Privacy Policy</h2></strong>
 <hr color=red height=20px/>
-<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
     <span class="sr-only">Loading...</span>
 </div>
 <div class="col-lg-8">
@@ -29,10 +29,10 @@
     </form>
 </div>
 <br>
-<div class="col-lg-8">
+<div class="col-lg-12">
     <h3>Privacy Policy</h3>
     <hr>
-    <br> A PDF FILE OF POLICY SHOWN HERE
+    <embed height="700px" width="100%" id="pdf-embed" src="" type="application/pdf">
 </div>
 <script>
     $("#policy-upload").click(function() {
@@ -100,6 +100,17 @@
                     });
                 })
             })
+
+    })
+    var db = firebase.database().ref("About/policy");
+    db.on("value", function(about) {
+
+        if (about.exists()) {
+            var link = about.val();
+            $("#pdf-embed").attr("src", link);
+            $("#spinner").removeClass("spinner-grow")
+        }
+
 
     })
 </script>

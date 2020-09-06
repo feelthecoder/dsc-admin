@@ -27,10 +27,10 @@
                 <button id="user-email" class="btn btn-secondary " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Chat
                     </button>
-                <div class="dropdown-menu" style="margin-top:8px;width:315px;height:555px;background:#343a40;" aria-labelledby="user-email">
+                <div class="dropdown-menu" style="margin-top:8px;width:315px;height:520px;background:#343a40;" aria-labelledby="user-email">
                     <div class="search" style="float: left;margin: 7px;">
                         <form action="#">
-                            <input style="width: 250px;height: 25px;border-radius: 25px;border: none;" type="text" placeholder=" Search " name="search">
+                            <input style="width: 250px;height:25px;border-radius: 25px;border: none;" type="text" placeholder=" Search " name="search">
                             <button style="background-color: #343a40;color: #f2f2f2;float: right;margin-left:10px;margin-top:2px;padding: 2px 2px;margin-right: 16px;font-size: 12px;border: none;cursor: pointer;"> 
                                 <i class="fa fa-search"
                                     style="font-size: 18px;"> 
@@ -38,7 +38,13 @@
                             </button>
                         </form>
                     </div>
-                    <div>
+                    <div id="users" style="margin:4px, 4px; 
+                    padding:4px; 
+                    height: 100%; 
+                    background-color:#343a40;
+                    overflow-x: hidden; 
+                    overflow-y: auto; 
+                    text-align:justified;">
 
                     </div>
                 </div>
@@ -130,6 +136,9 @@
             <strong>
                 <h2 style="font-family:fantasy">HOME</h2></strong>
             <hr color=red height=20px/>
+            <div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+                <span class="sr-only">Loading...</span>
+            </div>
             <div class="row">
                 <div class="col-lg-5">
                     <form id="form-news">
@@ -188,7 +197,7 @@
                     <form id="form-banner">
                         <div class="form-group">
                             <label for="banner-title">Banner Number</label>
-                            <input type="text" class="form-control" id="banner-title" />
+                            <input placeholder="1-7" type="text" class="form-control" id="banner-title" />
                             <div class="invalid-feedback">
                                 Please enter a valid banner no.
                             </div>
@@ -255,11 +264,33 @@
                 </div>
                 <hr>
                 <div class="col-lg-5">
-                    <h6>Suggestions/Complains will shown here!</h6>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th>Complain/Suggestion</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="complain">
+
+                        </tbody>
+                    </table>
                 </div>
                 <hr>
                 <div class="col-lg-5">
-                    <h6>Feedback will shown here!</h6>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th>Feedback</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="feedback">
+
+                        </tbody>
+                    </table>
                 </div>
                 <hr>
             </div>
@@ -276,6 +307,7 @@
                         return;
                     }
 
+                    $("#spinner").addClass("spinner-grow");
 
 
                     var data = firebase.database().ref("MainData/mText");
@@ -290,7 +322,7 @@
 
 
                         }
-
+                        $("#spinner").removeClass("spinner-grow")
                         $("#form-news")[0].reset();
 
                     })
@@ -325,6 +357,7 @@
                         $("#banner-file").addClass("is-invalid");
                         return;
                     }
+                    $("#spinner").addClass("spinner-grow")
 
                     var database = firebase.database().ref("Switcher/");
 
@@ -454,7 +487,7 @@
                                         }
                                     });
                                 }
-
+                                $("#spinner").removeClass("spinner-grow")
                                 $("#form-banner")[0].reset();
                                 $("#banner-progress").html("Completed");
 
@@ -462,10 +495,8 @@
                             });
                         })
                 })
-
-
-
                 $("#result-upload").click(function() {
+
                     var validType = ["application/pdf"];
 
                     $("#result-title").removeClass("is-invalid");
@@ -488,6 +519,8 @@
                         $("#result-file").addClass("is-invalid");
                         return;
                     }
+
+                    $("#spinner").addClass("spinner-grow");
 
                     var time = new Date().getTime();
 
@@ -533,6 +566,7 @@
 
 
                                     }
+                                    $("#spinner").removeClass("spinner-grow")
                                     $("#form-result")[0].reset();
                                     $("#result-progress").html("Completed");
                                 });
@@ -571,6 +605,8 @@
                         $("#post-pic").addClass("is-invalid");
                         return;
                     }
+
+                    $("#spinner").addClass("spinner-grow")
 
                     var time = new Date().getTime();
 
@@ -621,7 +657,7 @@
 
 
                                     }
-
+                                    $("#spinner").removeClass("spinner-grow")
                                     $("#form-post")[0].reset();
                                     $("#post-progress").html("Completed");
                                 })
@@ -629,11 +665,83 @@
                             });
                         });
                 })
+
+                var dComp = firebase.database().ref("MainData/ComplainSuggestions");
+                dComp.on("value", function(complains) {
+
+                    if (complains.exists()) {
+                        var complainHtml = "";
+
+                        complains.forEach(function(complain) {
+                            complainHtml += "<tr>";
+                            complainHtml += "<td>";
+                            complainHtml += complain.val().comment;
+                            complainHtml += "</td>";
+                            complainHtml += "</tr>";
+
+
+                        });
+                        $("#complain").html(complainHtml);
+                    }
+
+
+                })
+
+                var feed = firebase.database().ref("MainData/Feedback");
+                feed.on("value", function(feedbacks) {
+
+                    if (feedbacks.exists()) {
+                        var feedbackHtml = "";
+
+                        feedbacks.forEach(function(feedback) {
+                            feedbackHtml += "<tr>";
+                            feedbackHtml += "<td>";
+                            feedbackHtml += feedback.val().comment;
+                            feedbackHtml += "</td>";
+                            feedbackHtml += "</tr>";
+
+
+                        });
+                        $("#spinner").removeClass("spinner-grow")
+                        $("#feedback").html(feedbackHtml);
+                    }
+
+
+                })
+
+                var userN = firebase.database().ref("Users/");
+                userN.on("value", function(r) {
+
+                    if (r.exists()) {
+                        var resHtml = "";
+                        r.forEach(function(re) {
+                            resHtml += "<div>"
+                            resHtml += "<img src='"
+
+                            resHtml += re.val().profileImageUrl;
+
+                            resHtml += "' id='image'  width=50px height=50px  style='border-radius:50%;margin-top:10px'/>"
+
+                            resHtml += "<span style='margin-top:8px;margin-left:30px;color:white'>"
+                            resHtml += re.val().displayName;
+                            resHtml += "</span>"
+                            resHtml += "</div>"
+
+                        })
+                        $("#users").html(resHtml);
+                    }
+                })
             </script>
+
         </div>
     </div>
 </body>
 
-</html>
+</html> })
+</script>
+
+</div>
+</div>
+</body>
 
 </html>

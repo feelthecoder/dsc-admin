@@ -1,7 +1,7 @@
 <strong>
         <h2 style="font-family:fantasy">HOME</h2></strong>
 <hr color=red height=20px/>
-<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
     <span class="sr-only">Loading...</span>
 </div>
 <div class="row">
@@ -546,7 +546,7 @@
 
 
             });
-            $("complain").html(complainHtml);
+            $("#complain").html(complainHtml);
         }
 
 
@@ -567,10 +567,10 @@
 
 
             });
-            $("feedback").html(feedbackHtml);
+            $("#spinner").removeClass("spinner-grow")
+            $("#feedback").html(feedbackHtml);
         }
 
 
     })
-</script>
 </script>

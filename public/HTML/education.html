@@ -1,7 +1,7 @@
 <strong>
         <h2 style="font-family:fantasy">e-Library</h2></strong>
 <hr color=red height=20px/>
-<div id="spinner" class="text-primary " role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
     <span class="sr-only">Loading...</span>
 </div>
 <div class="col-lg-5" style="margin-left:-1.3%">
@@ -282,6 +282,7 @@
             <thead>
 
                 <tr>
+                    <td>User</td>
                     <td>Name</td>
                     <td>Status</td>
                     <td>Accept</td>
@@ -291,7 +292,7 @@
 
             </thead>
 
-            <tbody>
+            <tbody id="edu-resource">
 
             </tbody>
 
@@ -701,5 +702,108 @@
             })
         }
 
+    });
+    var res = firebase.database().ref("SubmittedResources/");
+    res.on("value", function(r) {
+
+        if (r.exists()) {
+            var resHtml = "";
+
+            r.forEach(function(re) {
+
+                var user = re.key;
+
+                var userData = firebase.database().ref("SubmittedResources/" + user);
+
+                userData.on("value", function(userR) {
+                    if (userR.exists()) {
+
+                        var result;
+                        var url;
+
+
+                        userR.forEach(function(resource) {
+                            var Name = "";
+                            var id = resource.key;
+                            var userName = firebase.database().ref("Users/" + user);
+
+                            userName.on("value", function(getUser) {
+                                if (getUser.exists()) {
+                                    Name = getUser.val().displayName;
+
+                                    resHtml += "<tr>";
+                                    resHtml += "<td>";
+                                    resHtml += Name;
+                                    resHtml += "</td>";
+                                    resHtml += "<td>";
+                                    resHtml += resource.val().name;
+                                    resHtml += "</td>";
+                                    resHtml += "<td>";
+                                    url = resource.val().url;
+                                    result = resource.val().status;
+                                    if (result == "0")
+                                        resHtml += "Pending";
+                                    else if (result == "1")
+                                        resHtml += "Rejected";
+                                    else
+                                        resHtml += "Accepted"
+                                    resHtml += "</td>";
+                                    resHtml += "<td>";
+                                    resHtml += "<button id='accept' type='button' placeholder='Accept' class='btn btn-primary'>Accept</button>";
+                                    resHtml += "</td>";
+                                    resHtml += "<td>";
+                                    resHtml += "<button id='reject' type='button' placeholder='Reject' class='btn btn-primary'>Reject</button>";
+                                    resHtml += "</td>";
+                                    resHtml += "<td>";
+                                    resHtml += "<a target='_blank' id='down'><button id='download' type='button' placeholder='Download' class='btn btn-primary'>Download</button></a>";
+                                    resHtml += "</td>";
+                                    resHtml += "</tr>";
+
+                                }
+
+                            })
+                            $("#edu-resource").html(resHtml);
+                            $("#spinner").removeClass("spinner-grow")
+
+                            $("#reject").click(function(err) {
+                                var db = firebase.database().ref("SubmittedResources/" + user);
+                                db.child(id).child("status").set("1", function(err) {
+                                    if (err) {
+                                        alert(err.message);
+                                    } else {
+                                        alert("Resource Rejected !");
+                                    }
+
+                                })
+
+                            })
+                            $("#accept").click(function(err) {
+                                var db = firebase.database().ref("SubmittedResources/" + user);
+                                db.child(id).child("status").set("2", function(err) {
+                                    if (err) {
+                                        alert(err.message);
+                                    } else {
+                                        alert("Resource Accepted !");
+                                    }
+
+                                })
+                            })
+                            $("#download").click(function() {
+                                $("#down").attr("href", url);
+                            })
+
+
+
+
+                        })
+
+
+
+                    }
+
+                })
+
+            })
+        }
     });
 </script>
