@@ -51,16 +51,18 @@
                     <td>Name</td>
 
                     <td>Status</td>
+                    <td>Accept
+                    </td>
                     <td>
                         Pending
                     </td>
                     <td>Active</td>
-                    <td>Accept
-                    </td>
-                    <td>Reject</td>
                     <td>Processing</td>
                     <td>Completed</td>
-                    <td>Download</td>
+
+                    <td>Reject</td>
+
+                    <td>View</td>
                 </tr>
 
             </thead>
@@ -170,9 +172,15 @@
                             var id = resource.key;
                             var userName = firebase.database().ref("Users/" + user);
 
+
+
                             userName.on("value", function(getUser) {
                                 if (getUser.exists()) {
                                     Name = getUser.val().displayName;
+                                    var userID = "&#39;" + user + "&#39;";
+                                    var ide = "&#39;" + id + "&#39";
+                                    url = "&#39;" + resource.val().url + "&#39;";
+
 
                                     resHtml += "<tr>";
                                     resHtml += "<td>";
@@ -182,7 +190,6 @@
                                     resHtml += resource.val().name;
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    url = resource.val().url;
                                     result = resource.val().status;
                                     if (result == "0")
                                         resHtml += "Pending";
@@ -199,25 +206,25 @@
 
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='accept' type='button' placeholder='Accept' class='btn btn-primary'>Accept</button>";
+                                    resHtml += "<button id='accept' type='button' placeholder='Accept' class='btn btn-primary' onclick='funAccept(" + userID + "," + ide + ")'>Accept</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='pending' type='button' placeholder='Accept' class='btn btn-primary'>Pending</button>";
+                                    resHtml += "<button id='pending' type='button' placeholder='Accept' class='btn btn-primary' onclick='funPending(" + userID + "," + ide + ")'>Pending</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='active' type='button' placeholder='Accept' class='btn btn-primary'>Active</button>";
+                                    resHtml += "<button id='active' type='button' placeholder='Accept' class='btn btn-primary' onclick='funActive(" + userID + "," + ide + ")'>Active</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='process' type='button' placeholder='Accept' class='btn btn-primary'>Processing</button>";
+                                    resHtml += "<button id='process' type='button' placeholder='Accept' class='btn btn-primary' onclick='funProcessing(" + userID + "," + ide + ")'>Processing</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='complete' type='button' placeholder='Accept' class='btn btn-primary'>Complete</button>";
+                                    resHtml += "<button id='complete' type='button' placeholder='Accept' class='btn btn-primary' onclick='funComplete(" + userID + "," + ide + ")'>Complete</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='reject' type='button' placeholder='Reject' class='btn btn-primary'>Reject</button>";
+                                    resHtml += "<button id='reject' type='button' placeholder='Reject' class='btn btn-primary' onclick='funReject(" + userID + "," + ide + ")'>Reject</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<a target='_blank' id='down'><button id='download' type='button' placeholder='Download' class='btn btn-primary'>Download</button></a>";
+                                    resHtml += "<a target='_blank' id='down'><button id='download' type='button' placeholder='Download' class='btn btn-primary' onclick='funDownload(" + userID + "," + url + ")'>View</button></a>";
                                     resHtml += "</td>";
                                     resHtml += "</tr>";
 
@@ -225,89 +232,96 @@
 
                             })
                             $("#project-list").html(resHtml);
-                            $("#spinner").removeClass("spinner-grow")
-
-                            $("#reject").click(function(err) {
-                                var db = firebase.database().ref("Projects/" + user);
-                                db.child(id).child("status").set("3", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Project Rejected !");
-                                    }
-
-                                })
-
-                            })
-
-                            $("#active").click(function(err) {
-                                var db = firebase.database().ref("Projects/" + user);
-                                db.child(id).child("status").set("1", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Project is made active !");
-                                    }
-
-                                })
-
-                            })
-                            $("#process").click(function(err) {
-                                var db = firebase.database().ref("Projects/" + user);
-                                db.child(id).child("status").set("4", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Project is under development !");
-                                    }
-
-                                })
-
-
-
-                            })
-
-
-                            $("#complete").click(function(err) {
-                                var db = firebase.database().ref("Projects/" + user);
-                                db.child(id).child("status").set("5", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Project is Completed !");
-                                    }
-
-                                })
-
-                            })
-                            $("#accept").click(function(err) {
-                                var db = firebase.database().ref("Projects/" + user);
-                                db.child(id).child("status").set("2", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Project Accepted !");
-                                    }
-
-                                })
-
-                            })
-                            $("#download").click(function() {
-                                $("#down").attr("href", url);
-                            })
-
-
-
+                            $("#spinner").removeClass("spinner-grow");
 
                         })
-
-
-
                     }
-
                 })
 
             })
         }
     });
+
+
+
+
+
+    function funAccept(user, id) {
+        var db = firebase.database().ref("Projects/" + user);
+        db.child(id).child("status").set("2", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Project Accepted !");
+            }
+        })
+    }
+
+    function funReject(user, id) {
+
+        var db = firebase.database().ref("Projects/" + user);
+        db.child(id).child("status").set("3", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Project Rejected !");
+            }
+        })
+
+    }
+
+    function funProcessing(user, id) {
+
+        var db = firebase.database().ref("Projects/" + user);
+        db.child(id).child("status").set("4", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Project is under development !");
+            }
+
+        })
+
+    }
+
+    function funPending(user, id) {
+        var db = firebase.database().ref("Projects/" + user);
+        db.child(id).child("status").set("0", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Project status set to Pending !");
+            }
+        })
+    }
+
+    function funActive(user, id) {
+        var db = firebase.database().ref("Projects/" + user);
+        db.child(id).child("status").set("1", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Project is made active !");
+            }
+
+        })
+
+
+    }
+
+    function funDownload(user, url) {
+
+        $("#down").attr("href", url);
+    }
+
+    function funComplete(user, id) {
+        var db = firebase.database().ref("Projects/" + user);
+        db.child(id).child("status").set("5", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Project is Completed !");
+            }
+        })
+    }
 </script>

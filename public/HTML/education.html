@@ -287,7 +287,7 @@
                     <td>Status</td>
                     <td>Accept</td>
                     <td>Reject</td>
-                    <td>Download</td>
+                    <td>View</td>
                 </tr>
 
             </thead>
@@ -731,6 +731,11 @@
                                 if (getUser.exists()) {
                                     Name = getUser.val().displayName;
 
+                                    var userID = "&#39;" + user + "&#39;";
+                                    var ide = "&#39;" + id + "&#39";
+                                    url = "&#39;" + resource.val().url + "&#39;";
+
+
                                     resHtml += "<tr>";
                                     resHtml += "<td>";
                                     resHtml += Name;
@@ -739,7 +744,6 @@
                                     resHtml += resource.val().name;
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    url = resource.val().url;
                                     result = resource.val().status;
                                     if (result == "0")
                                         resHtml += "Pending";
@@ -749,61 +753,59 @@
                                         resHtml += "Accepted"
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='accept' type='button' placeholder='Accept' class='btn btn-primary'>Accept</button>";
+                                    resHtml += "<button id='accept' type='button' placeholder='Accept' class='btn btn-primary' onclick='funAccept(" + userID + "," + ide + ")'>Accept</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<button id='reject' type='button' placeholder='Reject' class='btn btn-primary'>Reject</button>";
+                                    resHtml += "<button id='reject' type='button' placeholder='Reject' class='btn btn-primary' onclick='funReject(" + userID + "," + ide + ")'>Reject</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<a target='_blank' id='down'><button id='download' type='button' placeholder='Download' class='btn btn-primary'>Download</button></a>";
+                                    resHtml += "<a target='_blank' id='down'><button id='download' type='button' placeholder='Download' class='btn btn-primary' onclick='funDownload(" + userID + "," + url + ")'>View</button></a>";
                                     resHtml += "</td>";
                                     resHtml += "</tr>";
 
                                 }
 
                             })
-                            $("#edu-resource").html(resHtml);
-                            $("#spinner").removeClass("spinner-grow")
-
-                            $("#reject").click(function(err) {
-                                var db = firebase.database().ref("SubmittedResources/" + user);
-                                db.child(id).child("status").set("1", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Resource Rejected !");
-                                    }
-
-                                })
-
-                            })
-                            $("#accept").click(function(err) {
-                                var db = firebase.database().ref("SubmittedResources/" + user);
-                                db.child(id).child("status").set("2", function(err) {
-                                    if (err) {
-                                        alert(err.message);
-                                    } else {
-                                        alert("Resource Accepted !");
-                                    }
-
-                                })
-                            })
-                            $("#download").click(function() {
-                                $("#down").attr("href", url);
-                            })
-
-
-
-
                         })
-
-
-
+                        $("#edu-resource").html(resHtml);
+                        $("#spinner").removeClass("spinner-grow");
                     }
-
                 })
 
             })
         }
     });
+
+    function funAccept(user, id) {
+        var db = firebase.database().ref("SubmittedResources/" + user);
+        db.child(id).child("status").set("2", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Resource Accepted !");
+            }
+
+        })
+
+    }
+
+    function funDownload(user, url) {
+
+        $("#down").attr("href", url);
+
+
+    }
+
+    function funReject(user, id) {
+        var db = firebase.database().ref("SubmittedResources/" + user);
+        db.child(id).child("status").set("1", function(err) {
+            if (err) {
+                alert(err.message);
+            } else {
+                alert("Resource Rejected !");
+            }
+
+        })
+
+    }
 </script>

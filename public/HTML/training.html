@@ -5,7 +5,7 @@
     <span class="sr-only">Loading...</span>
 </div>
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-7">
         <h3>Post New Training</h3>
         <form id="training">
             <div class="form-group">
@@ -60,34 +60,42 @@
 
 
     </div>
-    <div class="col-lg-8">
-        <h3>Registered Candidates</h3>
-        <br>
-        <label for="reg-text">Training</label>
-        <input list="technology " class="form-control " id="reg-text" />
-        <datalist id="technology">
-                <option value="C">
+    <div class="col-lg-12">
+        <div>
+            <h3>Registered Candidates</h3>
+            <br>
+            <label for="res-text">Training</label>
+            <input placeholder="Select from list only" list="technology" class="form-control " id="res-text" />
+            <div class="invalid-feedback">
+                Please select any training
+            </div>
+
+            <datalist id="technology">
+               
             </datalist>
-        <br>
-        <button id="train-export" type="button">Export Excel</button>
-        <br>
-        <br>
-        <table class="table table-striped">
-            <thead>
-                <td>Name</td>
-                <td>Mobile</td>
-                <td>Email</td>
-                <td>D.O.R</td>
-                <td>College</td>
-                <td>Course</td>
-                <td>Branch</td>
-                <td>R.C</td>
-            </thead>
-            <tbody>
+        </div>
+        <div>
+            <br>
+            <button id="train-export" type="button">Export Excel</button>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <td>Name</td>
+                    <td>Mobile</td>
+                    <td>Email</td>
+                    <td>D.O.R</td>
+                    <td>College</td>
+                    <td>Course</td>
+                    <td>Year</td>
+                    <td>Branch</td>
+                    <td>R.C</td>
+                </thead>
+                <tbody id="train-res">
 
-            </tbody>
-        </table>
-
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </div>
@@ -217,5 +225,82 @@
 
                 });
             });
+    })
+    var li = firebase.database().ref("Forms/Training/");
+
+    li.on("value", function(tra) {
+        if (tra.exists()) {
+            var resOption = "";
+
+            tra.forEach(function(get) {
+                var trainKey = get.key;
+                resOption += "<option value='";
+                resOption += trainKey;
+                resOption += "'></option>"
+            })
+            $("#technology").html(resOption);
+            $("#spinner").removeClass("spinner-grow");
+
+        }
+    })
+
+    $("#res-text").addClass("is-invalid");
+    var value = document.getElementById("res-text");
+    var training = "";
+
+    value.addEventListener("input", function() {
+        training = this.value;
+        $("#spinner").addClass("spinner-grow");
+        $("#res-text").removeClass("is-invalid");
+        var dres = firebase.database().ref("Forms/Training/" + training + "/");
+
+        if (!training) {
+            $("#res-text").addClass("is-invalid");
+            return;
+        } else {
+            dres.on("value", function(gets) {
+                if (gets.exists()) {
+                    var resHtml = "";
+                    gets.forEach(function(data) {
+                        data.forEach(function(re) {
+                            resHtml += "<tr>";
+                            resHtml += "<td>";
+                            resHtml += re.val().name_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().mobile_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().email_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().date_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().college_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().course_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().year_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().branch_;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().code_;
+                            resHtml += "</td>";
+                            resHtml += "</tr>";
+                        })
+                        $("#train-res").html(resHtml);
+                        $("#spinner").removeClass("spinner-grow");
+
+                    })
+                }
+            })
+
+        }
+
     })
 </script>

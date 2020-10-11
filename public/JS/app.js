@@ -17,21 +17,23 @@ firebase.auth.Auth.Persistence.LOCAL;
 
 $("#btn-log").click(function() {
 
+    document.getElementById("progress-id").style.display = "block";
+
+
     var email = $("#email").val();
     var password = $("#password").val();
 
     if (email != "" && password != "") {
         var result = firebase.auth().signInWithEmailAndPassword(email, password);
 
+        document.getElementById("progress-id").style.display = "none";
         result.catch(function(error) {
             var errorCode = error.code;
             var errorMessage = error.message;
-
-            console.log(errorCode);
-            console.log(errorMessage);
+            window.alert(errorCode + " : " + errorMessage);
         });
     } else {
-
+        document.getElementById("progress-id").style.display = "none";
         window.alert("Fill all fields.");
     }
 });
