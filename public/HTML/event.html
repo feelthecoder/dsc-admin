@@ -1,5 +1,5 @@
 <strong>
-    <h2 style="font-family:fantasy">Competitions</h2></strong>
+    <h2 style="font-family:fantasy">Events</h2></strong>
 <hr color=red height=20px/>
 <div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
     <span class="sr-only">Loading...</span>
@@ -65,14 +65,10 @@
             <h3>Registered Candidates</h3>
             <br>
             <label for="res-text">Event</label>
-            <input placeholder="Select from list only" list="technology" class="form-control " id="res-text" />
+            <select placeholder="Select from list only" list="technology" class="form-control " id="res-text"></select>
             <div class="invalid-feedback">
                 Please select any event
             </div>
-
-            <datalist id="technology">
-               
-            </datalist>
         </div>
         <div>
             <br>
@@ -238,11 +234,11 @@
 
             eva.forEach(function(get) {
                 var eventKey = get.key;
-                resOption += "<option value='";
+                resOption += "<option>";
                 resOption += eventKey;
-                resOption += "'></option>"
+                resOption += "</option>"
             })
-            $("#technology").html(resOption);
+            $("#res-text").html(resOption);
             $("#spinner").removeClass("spinner-grow");
 
         }
@@ -255,11 +251,14 @@
     value.addEventListener("input", function() {
         event = this.value;
         $("#spinner").addClass("spinner-grow");
+        $("#event-res").html("");
         $("#res-text").removeClass("is-invalid");
         var dres = firebase.database().ref("Forms/Event/" + event + "/");
 
         if (!event) {
             $("#res-text").addClass("is-invalid");
+            $("#event-res").html("");
+            $("#spinner").removeClass("spinner-grow");
             return;
         } else {
             dres.on("value", function(gets) {
@@ -301,10 +300,62 @@
                         $("#spinner").removeClass("spinner-grow");
 
                     })
+                } else {
+                    $("#event-res").html("");
+                    $("#spinner").removeClass("spinner-grow");
                 }
             })
 
         }
 
+    })
+    event = $("#res-text").val();
+    var dres = firebase.database().ref("Forms/Event/" + event + "/");
+
+
+    dres.on("value", function(gets) {
+        if (gets.exists()) {
+            var resHtml = "";
+            $("#res-text").removeClass("is-invalid");
+            gets.forEach(function(data) {
+                data.forEach(function(re) {
+                    resHtml += "<tr>";
+                    resHtml += "<td>";
+                    resHtml += re.val().name_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().mobile_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().email_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().date_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().college_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().course_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().year_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().branch_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().code_;
+                    resHtml += "</td>";
+                    resHtml += "</tr>";
+                })
+                $("#event-res").html(resHtml);
+                $("#spinner").removeClass("spinner-grow");
+
+            })
+        } else {
+            $("#event-res").html("");
+            $("#spinner").removeClass("spinner-grow");
+        }
     })
 </script>

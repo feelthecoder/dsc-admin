@@ -5,7 +5,7 @@
     <span class="sr-only">Loading...</span>
 </div>
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <h3>Upload Sample</h3>
         <form id="project">
             <br>
@@ -224,7 +224,7 @@
                                     resHtml += "<button id='reject' type='button' placeholder='Reject' class='btn btn-primary' onclick='funReject(" + userID + "," + ide + ")'>Reject</button>";
                                     resHtml += "</td>";
                                     resHtml += "<td>";
-                                    resHtml += "<a target='_blank' id='down'><button id='download' type='button' placeholder='Download' class='btn btn-primary' onclick='funDownload(" + userID + "," + url + ")'>View</button></a>";
+                                    resHtml += "<button id='download' type='button' placeholder='Download' class='btn btn-primary' onclick='funDownload(" + userID + "," + url + ")'>View</button>";
                                     resHtml += "</td>";
                                     resHtml += "</tr>";
 
@@ -311,7 +311,8 @@
 
     function funDownload(user, url) {
 
-        $("#down").attr("href", url);
+        window.open(url);
+
     }
 
     function funComplete(user, id) {

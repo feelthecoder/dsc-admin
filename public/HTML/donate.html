@@ -5,59 +5,320 @@
     <span class="sr-only">Loading...</span>
 </div>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-7">
+        <h3>Send Interview Questions</h3>
+        <hr>
         <form>
             <div class="form-group">
-                <h4><label for="res">Send Interview Questions</label> </h4>
-                <input list="technology" class="form-control " id="res-text " />
-            </div>
-            <hr>
+                <label for="res">Person</label>
+                <select list="technology" class="form-control " id="res-text">
+                    
+                </select>
+                <div class="invalid-feedback">
+                    Please enter person name
+                </div>
+            </div><br>
+            <hr><br>
             <div>
                 <div>
-                    <h3>Person Details</h3>
-                    <br>
-                    <h5><label for="link ">Email</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Subject</label> </h5>
-                    <input type="file" class="form-control " id="link-name " />
-                    <br>
-                    <h5><label for="link ">Description/Questions</label> </h5>
-                    <input type="text " class="form-control " id="link-name " />
-                    <br>
-                </div> <br>
-                <div class="form-group ">
-                    <div class="progress ">
-                        <div class="progress-bar " style="width:0% ">0%</div>
+                    <h4>Prepare Mail
+                    </h4>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control " id="email" />
+                        <div class="invalid-feedback">
+                            Please enter email
+                        </div>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control " id="subject" />
+                        <div class="invalid-feedback">
+                            Please enter subject
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="questions">Questions</label>
+                        <textarea type="text" class="form-control " id="questions"></textarea>
+                        <div class="invalid-feedback">
+                            Please enter questions
+                        </div>
+                    </div>
+                </div> <br>
+
                 <div class="form-group ">
-                    <button type="button " class="btn btn-primary ">Send</button>
-                </div>
-                <div id="result-course ">
-                    <h6>Sent!</h6>
+                    <button type="button" class="btn btn-primary" id="send-mail">Send</button>
                 </div>
             </div>
         </form>
     </div>
-    <div class="col-lg-6">
-        <h3>Donations </h3>
-        <br>
-        <button type=" button ">Export Excel</button>
-        <br>
-        <br>
-        <table>
-            <tr>
-                <td>Name </td>
-                <td>Email </td>
-                <td>Amount </td>
-                <td>Transaction ID </td>
-                <td>Donation Mode</td>
-            </tr>
-        </table>
+    <div class="col-lg-12">
+        <div>
+            <h3>Donation Details</h3>
+            <hr>
+            <label for="res-text">Person</label>
+            <select placeholder="Select from list only" list="technology" class="form-control " id="re-text"></select>
+            <div class="invalid-feedback">
+                Please select any person
+            </div>
+        </div>
+        <div>
+            <br>
+            <button id="train-export" type="button">Export Excel</button> <button id="train-export-all" type="button">Export All Excel</button>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <td>Amount</td>
+                    <td>Date</td>
+                    <td>Appr. ID</td>
+                    <td>Ref. ID</td>
+                    <td>Trans. ID</td>
+                    <td>Mail</td>
+                    <td>Status</td>
 
-        <h1>Total Donation :</h1>
+                </thead>
+                <tbody id="train-res">
+
+                </tbody>
+            </table>
+        </div>
+
     </div>
-
-
 </div>
+</div>
+
+<script>
+    var li = firebase.database().ref("Donation/");
+
+    li.on("value", function(tra) {
+        if (tra.exists()) {
+
+            var resOption = "";
+
+            var perOption = "";
+
+            tra.forEach(function(get) {
+                var user = get.key;
+
+
+
+                var use = firebase.database().ref("Users/" + user + "/");
+                use.on("value", function(gets) {
+                    var name = gets.val().displayName;
+                    var email = gets.val().email;
+                    var trainKey = use.key;
+                    resOption += "<option value='";
+                    resOption += trainKey;
+                    resOption += "'>";
+                    resOption += name;
+                    perOption += "</option>";
+                    perOption += "<option value='";
+                    perOption += email;
+                    perOption += "'>";
+                    perOption += name;
+                    perOption += "</option>";
+                    $("#email").val(email);
+
+                })
+            })
+            $("#re-text").html(resOption);
+            $("#res-text").html(perOption);
+            $("#spinner").removeClass("spinner-grow");
+
+        }
+    })
+
+    $("#re-text").addClass("is-invalid");
+    var value = document.getElementById("re-text");
+    var uid = "";
+
+    value.addEventListener("input", function() {
+        uid = this.value;
+        $("#train-res").html("");
+        $("#spinner").addClass("spinner-grow");
+        $("#re-text").removeClass("is-invalid");
+        var dres = firebase.database().ref("Donation" + uid + "/");
+
+        if (!uid) {
+            $("#train-res").html("");
+            $("#re-text").addClass("is-invalid");
+            $("#spinner").removeClass("spinner-grow");
+            return;
+        } else {
+            dres.on("value", function(gets) {
+                if (gets.exists()) {
+                    var resHtml = "";
+                    gets.forEach(function(data) {
+                        data.forEach(function(re) {
+                            var check = re.val().mail_sent;
+                            console.log(check);
+                            var str = "";
+                            if (check == 0)
+                                str += "Pending";
+                            else
+                                str += "Delivered";
+                            resHtml += "<tr>";
+                            resHtml += "<td>";
+                            resHtml += re.val().payment;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().date;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().approval;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().rID;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().tID;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += str;
+                            resHtml += "</td>";
+                            resHtml += "<td>";
+                            resHtml += re.val().status;
+                            resHtml += "</td>";
+                            resHtml += "</tr>";
+                        })
+                        $("#train-res").html(resHtml);
+                        $("#spinner").removeClass("spinner-grow");
+
+                    })
+
+                } else {
+                    $("#train-res").html("");
+                    $("#spinner").removeClass("spinner-grow");
+                }
+            })
+
+        }
+
+    })
+
+
+
+    var sel = document.getElementById('re-text');
+    uid = sel.value;
+    var dres = firebase.database().ref("Donation/" + uid + "/");
+    dres.on("value", function(gets) {
+        if (gets.exists()) {
+            var resHtml = "";
+            $("#re-text").removeClass("is-invalid");
+            gets.forEach(function(re) {
+                var check = re.val().mail_sent;
+                console.log(check);
+                var str = "";
+                if (check == 0)
+                    str += "Pending";
+                else
+                    str += "Delivered";
+                resHtml += "<tr>";
+                resHtml += "<td> ₹ ";
+                resHtml += re.val().payment;
+                resHtml += "</td>";
+                resHtml += "<td>";
+                resHtml += re.val().date;
+                resHtml += "</td>";
+                resHtml += "<td>";
+                resHtml += re.val().approval;
+                resHtml += "</td>";
+                resHtml += "<td>";
+                resHtml += re.val().rID;
+                resHtml += "</td>";
+                resHtml += "<td>";
+                resHtml += re.val().tID;
+                resHtml += "</td>";
+                resHtml += "<td>";
+                resHtml += str;
+                resHtml += "</td>";
+                resHtml += "<td>";
+                resHtml += re.val().status;
+                resHtml += "</td>";
+                resHtml += "</tr>";
+            })
+            $("#train-res").html(resHtml);
+            $("#spinner").removeClass("spinner-grow");
+
+        } else {
+            $("#train-res").html("");
+            $("#spinner").removeClass("spinner-grow");
+        }
+    })
+
+    var sele = document.getElementById('res-text');
+    var email = "";
+
+
+    sele.addEventListener("input", function() {
+        email = this.value;
+
+        $("#email").val(email);
+
+    })
+
+    $("#send-mail").click(function() {
+
+
+        $("#res-text").removeClass("is-invalid");
+        $("#email").removeClass("is-invalid");
+        $("#subject").removeClass("is-invalid");
+        $("#questions").removeClass("is-invalid");
+
+
+        var name = $("#res-text").val();
+        var email = $("#email").val();
+        var subject = $("#subject").val();
+        var questions = $("#questions").val();
+
+        if (!name) {
+            $("#res-text").addClass("is-invalid");
+            return;
+        }
+        if (!email) {
+            $("#email").addClass("is-invalid");
+            return;
+        }
+        if (!subject) {
+            $("#subject").addClass("is-invalid");
+            return;
+        }
+        if (!questions) {
+            $("#questions").addClass("is-invalid");
+            return;
+        }
+        var x = "300163a7bd96ba";
+        var y = "iZ!5j6!GVmMw4bF";
+
+
+        sendEmail(x, email, subject, questions);
+
+
+
+    })
+
+    function sendEmail(x, email, subject, questions) {
+        Email.send({
+                Host: "smtp.mailtrap.io",
+                Username: "95a71add325b8b",
+                Password: x,
+                To: email,
+                From: "events.dscrecbijnor@gmail.com",
+                Subject: subject,
+                Body: questions,
+            })
+            .then(function(message) {
+                alert("Mail Sent Successfully");
+                $("#res-text").val('');
+                $("#email").val('');
+                $("#subject").val('');
+                $("#questions").val('');
+
+            });
+
+    }
+</script>

@@ -132,14 +132,12 @@
             <h3>Registered Candidates</h3>
             <br>
             <label for="res-text">Event</label>
-            <input placeholder="Select from list only" list="technology" class="form-control " id="res-text" />
+            <select placeholder="Select from list only" list="technology" class="form-control " id="res-text">
+                </select>
             <div class="invalid-feedback">
                 Please select any event
             </div>
 
-            <datalist id="technology">
-               
-            </datalist>
         </div>
         <div>
             <br>
@@ -459,11 +457,11 @@
 
             eva.forEach(function(get) {
                 var competeKey = get.key;
-                resOption += "<option value='";
+                resOption += "<option>";
                 resOption += competeKey;
-                resOption += "'></option>"
+                resOption += "</option>"
             })
-            $("#technology").html(resOption);
+            $("#res-text").html(resOption);
             $("#spinner").removeClass("spinner-grow");
 
         }
@@ -477,10 +475,13 @@
         compete = this.value;
         $("#spinner").addClass("spinner-grow");
         $("#res-text").removeClass("is-invalid");
+        $("#compete-res").html("");
         var dres = firebase.database().ref("Forms/Spandan Tech Events/" + compete + "/");
 
         if (!compete) {
             $("#res-text").addClass("is-invalid");
+            $("#compete-res").html("");
+            $("#spinner").removeClass("spinner-grow");
             return;
         } else {
             dres.on("value", function(gets) {
@@ -522,10 +523,65 @@
                         $("#spinner").removeClass("spinner-grow");
 
                     })
+                } else {
+                    $("#compete-res").html("");
+                    $("#spinner").removeClass("spinner-grow");
+
                 }
             })
 
         }
 
+    })
+
+    compete = $("#res-text").val();
+    var dres = firebase.database().ref("Forms/Spandan Tech Events/" + compete + "/");
+
+
+    dres.on("value", function(gets) {
+        if (gets.exists()) {
+            var resHtml = "";
+            $("#res-text").removeClass("is-invalid");
+            gets.forEach(function(data) {
+                data.forEach(function(re) {
+                    resHtml += "<tr>";
+                    resHtml += "<td>";
+                    resHtml += re.val().name_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().mobile_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().email_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().date_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().college_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().course_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().year_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().branch_;
+                    resHtml += "</td>";
+                    resHtml += "<td>";
+                    resHtml += re.val().code_;
+                    resHtml += "</td>";
+                    resHtml += "</tr>";
+                })
+                $("#compete-res").html(resHtml);
+                $("#spinner").removeClass("spinner-grow");
+
+            })
+        } else {
+            $("#compete-res").html("");
+            $("#spinner").removeClass("spinner-grow");
+
+        }
     })
 </script>

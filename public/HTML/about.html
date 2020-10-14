@@ -8,17 +8,18 @@
 
 <div class="col-lg-5" style="margin-left:-1.3%">
     <label for="team-team">Select Team</label>
-    <input list="technology" class="form-control" id="team-team" />
+    <select list="technology" class="form-control" id="team-team">
+        <option>Board</option>
+            <option>Management Team</option>
+            <option >Technical Team</option>
+            <option>Designer Team</option>
+            <option >Members</option>
+    </select>
+
     <div class="invalid-feedback">
         Please choose a team
     </div>
-    <datalist id="technology">
-        <option value="Board">
-        <option value="Management Team">
-        <option value="Technical Team">
-        <option value="Designer Team">
-        <option value="Members">
-    </datalist>
+
 
 </div>
 <div class="row">
@@ -224,7 +225,6 @@
 
     })
 
-    $("#team-team").addClass("is-invalid");
     var value = document.getElementById("team-team");
     var mem = "";
     value.addEventListener("input", function() {
