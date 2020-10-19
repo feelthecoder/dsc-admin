@@ -76,7 +76,7 @@
             <button id="train-export" type="button">Export Excel</button>
             <br>
             <br>
-            <table class="table table-striped">
+            <table id="export-train" class="table table-striped">
                 <thead>
                     <td>Name</td>
                     <td>Mobile</td>
@@ -360,5 +360,10 @@
             $("#compete-res").html("");
             $("#spinner").removeClass("spinner-grow");
         }
+    })
+    $("#train-export").click(function() {
+        $("#export-train").table2excel({
+            filename: compete + ".xls"
+        });
     })
 </script>

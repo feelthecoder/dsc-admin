@@ -110,10 +110,10 @@
         </div>
         <div>
             <br>
-            <button type="button">Export Excel</button>
+            <button id="train-export" type="button">Export Excel</button>
             <br>
             <br>
-            <table class="table table-striped">
+            <table id="export-train" class="table table-striped">
                 <thead>
                     <tr>
                         <td>Question</td>
@@ -741,8 +741,10 @@
             })
         })
 
-
-
-
     }
+    $("#train-export").click(function() {
+        $("#export-train").table2excel({
+            filename: technology + "QuestionsBank.xls"
+        });
+    })
 </script>

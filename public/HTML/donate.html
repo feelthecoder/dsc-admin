@@ -67,10 +67,10 @@
         </div>
         <div>
             <br>
-            <button id="train-export" type="button">Export Excel</button> <button id="train-export-all" type="button">Export All Excel</button>
+            <button id="train-export" type="button">Export Excel</button>
             <br>
             <br>
-            <table class="table table-striped">
+            <table id="export-train" class="table table-striped">
                 <thead>
                     <td>Amount</td>
                     <td>Date</td>
@@ -155,7 +155,7 @@
                     gets.forEach(function(data) {
                         data.forEach(function(re) {
                             var check = re.val().mail_sent;
-                            console.log(check);
+
                             var str = "";
                             if (check == 0)
                                 str += "Pending";
@@ -259,66 +259,18 @@
 
         $("#email").val(email);
 
+    });
+
+
+
+
+
+
+    $("#train-export").click(function() {
+        $("#export-train").table2excel({
+            filename: uid + " (PersonID) .xls"
+        });
     })
-
-    $("#send-mail").click(function() {
-
-
-        $("#res-text").removeClass("is-invalid");
-        $("#email").removeClass("is-invalid");
-        $("#subject").removeClass("is-invalid");
-        $("#questions").removeClass("is-invalid");
-
-
-        var name = $("#res-text").val();
-        var email = $("#email").val();
-        var subject = $("#subject").val();
-        var questions = $("#questions").val();
-
-        if (!name) {
-            $("#res-text").addClass("is-invalid");
-            return;
-        }
-        if (!email) {
-            $("#email").addClass("is-invalid");
-            return;
-        }
-        if (!subject) {
-            $("#subject").addClass("is-invalid");
-            return;
-        }
-        if (!questions) {
-            $("#questions").addClass("is-invalid");
-            return;
-        }
-        var x = "300163a7bd96ba";
-        var y = "iZ!5j6!GVmMw4bF";
-
-
-        sendEmail(x, email, subject, questions);
-
-
-
-    })
-
-    function sendEmail(x, email, subject, questions) {
-        Email.send({
-                Host: "smtp.mailtrap.io",
-                Username: "95a71add325b8b",
-                Password: x,
-                To: email,
-                From: "events.dscrecbijnor@gmail.com",
-                Subject: subject,
-                Body: questions,
-            })
-            .then(function(message) {
-                alert("Mail Sent Successfully");
-                $("#res-text").val('');
-                $("#email").val('');
-                $("#subject").val('');
-                $("#questions").val('');
-
-            });
-
-    }
+</script>
+<script src="send-email.js">
 </script>

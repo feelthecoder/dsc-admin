@@ -12,10 +12,10 @@
         </div>
         <div>
             <br>
-            <button id="leader-export" type="button">Export Excel</button>
+            <button id="train-export" type="button">Export Excel</button>
             <br>
             <br>
-            <table class="table table-striped">
+            <table id="export-train" class="table table-striped">
                 <thead>
                     <td>Profile Image</td>
                     <td>Name</td>
@@ -34,12 +34,12 @@
         <br>
         <button id="winner-export" type="button">Export Excel</button>
         <br><br>
-        <table class="table table-striped">
+        <table id="export-winner" lass="table table-striped">
             <thead>
                 <td>Name</td>
                 <td>Email</td>
-                <td>Address</td>
-                <td>Pin Code</td>
+                <td>Address/Hostel</td>
+                <td>PinCode/RoomNo</td>
 
             </thead>
             <tbody id="winner-res">
@@ -50,11 +50,15 @@
 </div>
 
 <script>
-    var li = firebase.database().ref("Achievment/");
-    li.on("value", function(gets) {
+    var li = firebase.database().ref('Achievment');
+
+    li.orderByChild("DP").once("value", function(gets) {
+
         if (gets.exists()) {
             var resHtml = "";
+
             gets.forEach(function(get) {
+
                 resHtml += "<tr>"
                 resHtml += "<td>"
                 resHtml += get.val().name;
@@ -70,7 +74,10 @@
                 resHtml += "</tr>"
 
             })
+
             $("#train-res").html(resHtml);
+        } else {
+            $("spinner").removeClass("spinner-grow");
         }
     })
 
@@ -105,6 +112,20 @@
 
             })
             $("#winner-res").html(resHtml);
+        } else {
+            $("#spinner").removeClass("spinner-grow");
         }
+    })
+
+    $("#train-export").click(function() {
+        $("#export-train").table2excel({
+            filename: "Leaderboard.xls"
+        });
+    })
+
+    $("#winner-export").click(function() {
+        $("#export-winner").table2excel({
+            filename: "Winner.xls"
+        });
     })
 </script>

@@ -1,0 +1,14 @@
+{
+    "name": "dsc-admin",
+    "version": "1.0.0",
+    "description": "This is admin panel designed to work in accordance with DSC App.",
+    "main": "send-email.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Vikas Kumar",
+    "license": "MIT",
+    "dependencies": {
+        "nodemailer": "^6.4.14"
+    }
+}

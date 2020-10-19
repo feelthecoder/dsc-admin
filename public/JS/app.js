@@ -9,6 +9,8 @@ var firebaseConfig = {
     measurementId: "G-XSBRCGNTVF"
 };
 
+
+
 firebase.initializeApp(firebaseConfig);
 
 firebase.auth.Auth.Persistence.LOCAL;
@@ -37,6 +39,7 @@ $("#btn-log").click(function() {
         window.alert("Fill all fields.");
     }
 });
+
 
 function switchView(view) {
     $.get({
