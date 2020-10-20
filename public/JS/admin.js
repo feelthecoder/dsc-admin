@@ -2,7 +2,8 @@ $("#user-close").click(function() {
     document.getElementById("chat-box").style.display = "none";
 })
 
-
+var objDiv = document.getElementById("user-chat");
+objDiv.scrollTop = objDiv.scrollHeight;
 $("#news-upload").click(function() {
     $("#news-text").removeClass("is-invalid");
 
