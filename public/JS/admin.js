@@ -2,8 +2,7 @@ $("#user-close").click(function() {
     document.getElementById("chat-box").style.display = "none";
 })
 
-var objDiv = document.getElementById("user-chat");
-objDiv.scrollTop = objDiv.scrollHeight;
+
 $("#news-upload").click(function() {
     $("#news-text").removeClass("is-invalid");
 
@@ -488,6 +487,9 @@ function openChat(profile, name, user) {
             })
             chatHtml += "</ul>";
             $("#user-chat").html(chatHtml);
+
+            var objDiv = document.getElementById("user-chat");
+            objDiv.scrollTop = objDiv.scrollHeight;
         }
     })
 
