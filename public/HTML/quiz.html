@@ -1,0 +1,316 @@
+<strong>
+    <h2 style="font-family:fantasy">Quiz</h2></strong>
+<hr color=red height=20px/>
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
+<section id="edit_section"></section>
+<h3>Add Questions</h3>
+<br>
+
+
+
+<div class="row">
+
+    <div class="col-lg-5" style="margin-left:5%;margin-top:10%">
+        <label for="quiz-name">Category</label>
+        <select list="quiz" class="form-control " id="quiz-name">
+
+            </select>
+        <div class="invalid-feedback">
+            Please choose a category
+        </div>
+
+    </div>
+    <hr>
+    <div class="col-lg-4">
+        <form id="quizy">
+            <div class="form-group">
+                <label for="quiz-question">Question</label>
+                <input type="text" class="form-control " id="quiz-question" />
+                <div class="invalid-feedback">
+                    Please enter a question
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quiz-a">Option A</label>
+                <input type="text" class="form-control " id="quiz-a" />
+                <div class="invalid-feedback">
+                    Please enter option
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quiz-b">Option B</label>
+                <input type="text" class="form-control " id="quiz-b" />
+                <div class="invalid-feedback">
+                    Please enter option
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quiz-c">Option C</label>
+                <input type="text" class="form-control " id="quiz-c" />
+                <div class="invalid-feedback">
+                    Please enter option
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quiz-d">Option D</label>
+                <input type="text" class="form-control " id="quiz-d" />
+                <div class="invalid-feedback">
+                    Please enter option
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quiz-correct">Correct Answer</label>
+                <input type="text" class="form-control " id="quiz-correct" />
+                <div class="invalid-feedback">
+                    Please enter correct option
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="quiz-upload" type="button " class="btn btn-primary ">Add Question</button>
+            </div>
+            <div id="result-quiz">
+                <h6></h6>
+            </div>
+
+        </form>
+
+    </div>
+    <div id="id01" class="del" style="display: none;">
+
+        <form class="model-content">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div class="container">
+                <h1>Delete Question</h1>
+                <p>It will delete question and remove it from app. Are your sure want to delete this question ?</p>
+
+                <div class="clearfix">
+                    <button type="button" id="cancel-btn" class="cancelbtn">Cancel</button>
+                    <button type="button" id="delete-btn" class="deletebtn">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <hr><br>
+    <br>
+    <div class="col-lg-12">
+        <div>
+            <h3>Question Bank</h3>
+            <br>
+            <label for="res-text">Technology/Language</label>
+            <select placeholder="Select from list only" list="technology" class="form-control" id="re-text">
+                </select>
+            <div class="invalid-feedback">
+                Please select any training
+            </div>
+
+
+        </div>
+        <div>
+            <br>
+            <button id="train-export" type="button">Export Excel</button>
+            <br>
+            <br>
+            <table id="export-train" class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Question</td>
+
+                        <td>Option A</td>
+                        <td>
+                            Option B</td>
+                        <td>Option C</td>
+                        <td>Option D</td>
+                        <td>Correct Answer</td>
+                        <td>Remove
+                        </td>
+                        <td>Edit
+                        </td>
+                    </tr>
+
+                </thead>
+
+                <tbody id="res-q">
+                </tbody>
+
+
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span style="margin-left:98%;margin-bottom:10px" onclick="closeBox()" id="close" class="close">&times;</span>
+
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title" id="add-product-id">Edit Question</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Technology/Language</label>
+                        <select id="category_id" class="form-control">
+                                 </select>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <label for="quiz-questione">Question</label>
+                    <input type="text" class="form-control " id="quiz-questione" />
+                    <div class="invalid-feedback">
+                        Please enter a question
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="quiz-ae">Option A</label>
+                    <input type="text" class="form-control " id="quiz-ae" />
+                    <div class="invalid-feedback">
+                        Please enter option
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="quiz-be">Option B</label>
+                    <input type="text" class="form-control " id="quiz-be" />
+                    <div class="invalid-feedback">
+                        Please enter option
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="quiz-ce">Option C</label>
+                    <input type="text" class="form-control " id="quiz-ce" />
+                    <div class="invalid-feedback">
+                        Please enter option
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="quiz-de">Option D</label>
+                    <input type="text" class="form-control " id="quiz-de" />
+                    <div class="invalid-feedback">
+                        Please enter option
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="quiz-correcte">Correct Answer</label>
+                    <input type="text" class="form-control " id="quiz-correcte" />
+                    <div class="invalid-feedback">
+                        Please enter correct option
+                    </div>
+                </div>
+
+                <button id="edit-question" style="color: white;margin-top:10px" type="submit" class="btn btn-primary pull-center">Save</button>
+                <button id="close" onclick="closeBox()" style="color: white;margin-top:10px" type="close" class="btn btn-primary">Cancel</button>
+                <div class="form-group" style="margin-top: 10px;">
+                    <div class="progress">
+                        <div id="cat-progresse" class="progress-bar" style="width:0%">0%</div>
+                    </div>
+                </div>
+                <div id="result-cate">
+                    <h6></h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<style>
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 0% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+        /* Could be more or less, depending on screen size */
+    }
+    
+    .model-content {
+        background-color: #fefefe;
+        margin: 0% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        margin-top: 12%;
+        margin-left: 30%;
+    }
+    /* The Close Button */
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .cancelbtn {
+        color: gray;
+    }
+    
+    .deletebtn {
+        color: green;
+    }
+    
+    .del {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+<script src="../JS/quiz.js">
+</script>

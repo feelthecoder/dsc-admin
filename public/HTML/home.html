@@ -1,0 +1,164 @@
+<strong>
+        <h2 style="font-family:fantasy">HOME</h2></strong>
+<hr color=red height=20px/>
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="row">
+    <div class="col-lg-5">
+        <form id="form-news">
+            <div class="form-group">
+                <h3> <label for="news">News</label></h3>
+                <input type="text" class="form-control" id="news-text" />
+                <div class="invalid-feedback">
+                    Please enter a valid news
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="news-upload" type="button" class="btn btn-primary">Publish News</button>
+            </div>
+            <div id="result-news">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+    <div class="col-lg-5">
+        <h3>Result</h3>
+        <form id="form-result">
+            <div class="form-group">
+                <label for="result-title">Title</label>
+                <input type="text" class="form-control" id="result-title" />
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="result-file">File</label>
+                <input type="file" class="form-control" id="result-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid file
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="result-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="result-upload" type="button" class="btn btn-primary">Publish Result</button>
+            </div>
+            <div id="result-result">
+                <h6></h6>
+            </div>
+
+        </form>
+    </div>
+    <hr>
+
+    <div class="col-lg-5">
+        <h3>Banner</h3>
+        <form id="form-banner">
+            <div class="form-group">
+                <label for="banner-title">Banner Number</label>
+                <input placeholder="1-7" type="text" class="form-control" id="banner-title" />
+                <div class="invalid-feedback">
+                    Please enter a valid banner no.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="banner-file">File</label>
+                <input type="file" class="form-control" id="banner-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid file
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="banner-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="banner-upload" type="button" class="btn btn-primary">Publish Banner</button>
+            </div>
+            <div id="result-banner">
+                <h6></h6>
+            </div>
+
+        </form>
+    </div>
+    <hr>
+    <div class="col-lg-5">
+        <h2>Post</h2>
+        <form id="form-post">
+            <div class="form-group">
+                <label for="post-title">Title</label>
+                <input type="text" class="form-control" id="post-title" />
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="post-desc">Description</label>
+                <input type="text" class="form-control" id="post-desc" />
+                <div class="invalid-feedback">
+                    Please enter a valid description
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="post-pic">Picture</label>
+                <input type="file" class="form-control" id="post-pic" />
+                <div class="invalid-feedback">
+                    Please choose a valid image
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="post-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="post-upload" type="button" class="btn btn-primary">Publish Post</button>
+            </div>
+            <div id="result-post">
+                <h6></h6>
+            </div>
+
+        </form>
+    </div>
+    <hr>
+    <div class="col-lg-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Complain/Suggestion</th>
+                </tr>
+
+            </thead>
+            <tbody id="complain">
+
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="col-lg-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Feedback</th>
+                </tr>
+
+            </thead>
+            <tbody id="feedback">
+
+            </tbody>
+        </table>
+    </div>
+    <hr>
+</div>
+
+<script src="../JS/home.js">
+</script>

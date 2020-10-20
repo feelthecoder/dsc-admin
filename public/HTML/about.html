@@ -1,0 +1,162 @@
+<strong>
+    <h2 style="font-family:fantasy">About Us</h2></strong>
+<hr color=red height=20px/>
+<div id="spinner" class="text-primary" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading....</span>
+</div>
+<h3>Add Member</h3>
+
+<div class="col-lg-5" style="margin-left:-1.3%">
+    <label for="team-team">Select Team</label>
+    <select list="technology" class="form-control" id="team-team">
+        <option>Board</option>
+            <option>Management Team</option>
+            <option >Technical Team</option>
+            <option>Designer Team</option>
+            <option >Members</option>
+    </select>
+
+    <div class="invalid-feedback">
+        Please choose a team
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <form id="team">
+            <div class="form-group">
+                <h3>Person Profile</h3>
+                <label for="link">Name</label>
+                <input type="team-name" class="form-control" id="team-name" />
+                <div class="invalid-feedback">
+                    Please enter a name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-profile">Profile Picture (.jpg)</label>
+                <input type="file" class="form-control" id="team-profile" />
+                <div class="invalid-feedback">
+                    Please choose a valid profile image
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="team-bio">Bio</label>
+                <input type="text" class="form-control" id="team-bio" />
+                <div class="invalid-feedback">
+                    Please enter your bio
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-position">Position</label>
+                <input type="text" class="form-control" id="team-position" />
+                <div class="invalid-feedback">
+                    Please enter your position
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-skill">Skills</label>
+                <input type="text" class="form-control" id="team-skill" />
+                <div class="invalid-feedback">
+                    Please enter your skills
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-project">Projects</label>
+                <input type="text" class="form-control" id="team-project" />
+                <div class="invalid-feedback">
+                    Please enter your projects
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-special">Specialization</label>
+                <input type="text" class="form-control" id="team-special" />
+                <div class="invalid-feedback">
+                    Please enter your specialization
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-facebook">Facebook Profile</label>
+                <input type="text " class="form-control " id="team-facebook" />
+                <div class="invalid-feedback">
+                    Please enter your facebook profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-link">LinkedIn Profile</label>
+                <input type="text" class="form-control" id="team-link" />
+                <div class="invalid-feedback">
+                    Please enter your linkedin profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-instagram">Instagram Profile</label> </h5>
+                <input type="text" class="form-control " id="team-instagram" />
+                <div class="invalid-feedback">
+                    Please enter your instagram profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-hack">HackerRank Profile</label>
+                <input type="text" class="form-control " id="team-hack" />
+                <div class="invalid-feedback">
+                    Please enter your hackerrank profile link
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="team-git">GitHub Profile</label>
+                <input type="text" class="form-control" id="team-git" />
+                <div class="invalid-feedback">
+                    Please enter your github profile link
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="team-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="team-upload" type="button" class="btn btn-primary ">Register</button>
+            </div>
+            <div id="result-team">
+                <h6></h6>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-lg-6">
+        <h3>Upload About File</h3>
+        <form id="about">
+            <div class="form-group">
+                <label for="about-file">Select File</label>
+                <input type="file" class="form-control" id="about-file" />
+                <div class=" invalid-feedback ">
+                    Please choose a valid file
+                </div>
+            </div> <br>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="about-progress" class="progress-bar" style="width:0% ">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="about-upload" type="button" class="btn btn-primary">Upload About DSC</button>
+            </div>
+            <div id="result-about">
+                <h6></h6>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="../JS/about.js">
+</script>

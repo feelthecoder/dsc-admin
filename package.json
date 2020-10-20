@@ -1,0 +1,25 @@
+{
+  "name": "dsc-admin",
+  "version": "1.0.0",
+  "description": "This is admin panel designed to work in accordance with DSC App.",
+  "main": "send-email.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Vikas Kumar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.14"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feelthecoder/dsc-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/feelthecoder/dsc-admin/issues"
+  },
+  "homepage": "https://github.com/feelthecoder/dsc-admin#readme"
+}

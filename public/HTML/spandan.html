@@ -1,0 +1,169 @@
+<strong>
+    <h2 style="font-family:fantasy">Tech Spandan</h2></strong>
+<hr color=red height=20px/>
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <form id="spandan">
+            <h3>Post New Event</h3>
+            <br>
+            <div class="form-group">
+                <label for="spa-name">Name</label>
+                <input type="text" class="form-control" id="spa-name" />
+                <div class="invalid-feedback">
+                    Please enter event name
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="spa-info">Info</label>
+                <input type="text" class="form-control" id="spa-info" />
+                <div class="invalid-feedback">
+                    Please enter event info
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="spa-des">Description</label>
+                <input type="text" class="form-control" id="spa-des" />
+                <div class="invalid-feedback">
+                    Please enter event description
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="spa-file">Poster</label>
+                <input type="file" class="form-control" id="spa-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid poster
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="spa-date">Date</label>
+                <input type="date" class="form-control" id="spa-date" />
+                <div class="invalid-feedback">
+                    Please enter event date
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="progress">
+                    <div id="spa-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="spa-upload" type="button" class="btn btn-primary">Publish Event</button>
+            </div>
+            <div id="result-spa">
+                <h6></h6>
+            </div>
+        </form>
+
+
+    </div>
+
+    <div class="col-lg-6">
+        <h3>Upload Resource</h3>
+        <form id="resource">
+            <br>
+            <div class="form-group">
+                <label for="res-name">Name</label>
+                <input type="text" class="form-control" id="res-name" />
+                <div class="invalid-feedback">
+                    Please enter resource name
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="res-year">Year</label>
+                <input placeholder="2011-2020" type="number" class="form-control" id="res-year" />
+                <div class="invalid-feedback">
+                    Please enter a valid year
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="res-file">Image</label>
+                <input type="file" class="form-control" id="res-file" />
+                <div class="invalid-feedback">
+                    Please choose a picture
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="res-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="res-upload" type="button" class="btn btn-primary">Publish Image</button>
+            </div>
+            <div id="result-res">
+                <h6></h6>
+            </div>
+
+
+        </form>
+    </div>
+    <div class="col-lg-6">
+        <br>
+        <h3>Update About</h3>
+        <form id="about">
+            <hr>
+            <div>
+                <label for="about-file">File</label>
+                <input type="file" class="form-control" id="about-file" />
+                <div class="invalid-feedback">
+                    Please choose a valid file
+                </div>
+            </div><br>
+            <div class="form-group">
+                <div class="progress">
+                    <div id="about-progress" class="progress-bar" style="width:0% ">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="about-upload" type="button" class="btn btn-primary">Publish Policy</button>
+            </div>
+            <div id="result-about">
+                <h6></h6>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-lg-12">
+        <div>
+            <h3>Registered Candidates</h3>
+            <br>
+            <label for="res-text">Event</label>
+            <select placeholder="Select from list only" list="technology" class="form-control " id="res-text">
+                </select>
+            <div class="invalid-feedback">
+                Please select any event
+            </div>
+
+        </div>
+        <div>
+            <br>
+            <button id="train-export" type="button">Export Excel</button>
+            <br>
+            <br>
+            <table id="export-train" class="table table-striped">
+                <thead>
+                    <td>Name</td>
+                    <td>Mobile</td>
+                    <td>Email</td>
+                    <td>D.O.R</td>
+                    <td>College</td>
+                    <td>Course</td>
+                    <td>Year</td>
+                    <td>Branch</td>
+                    <td>R.C</td>
+                </thead>
+                <tbody id="compete-res">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script src="../JS/spandan.js">
+</script>

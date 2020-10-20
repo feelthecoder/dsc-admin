@@ -1,0 +1,53 @@
+<strong>
+    <h2 style="font-family:fantasy">Leaderboard</h2></strong>
+<hr color=red height=20px/>
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div>
+            <h3>Current Leaderboard</h3>
+            <hr>
+        </div>
+        <div>
+            <br>
+            <button id="train-export" type="button">Export Excel</button>
+            <br>
+            <br>
+            <table id="export-train" class="table table-striped">
+                <thead>
+                    <td>Profile Image</td>
+                    <td>Name</td>
+                    <td>Points</td>
+                </thead>
+                <tbody id="train-res">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+        <h3>Winners</h3>
+        <hr>
+        <br>
+        <button id="winner-export" type="button">Export Excel</button>
+        <br><br>
+        <table id="export-winner" class="table table-striped">
+            <thead>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Address/Hostel</td>
+                <td>PinCode/RoomNo</td>
+
+            </thead>
+            <tbody id="winner-res">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="../Js/leader.js">
+</script>

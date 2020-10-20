@@ -1,0 +1,102 @@
+<strong>
+    <h2 style="font-family:fantasy">Workshops</h2></strong>
+<hr color=red height=20px/>
+<div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="row">
+    <div class="col-lg-7">
+        <h3>Post New Workshop</h3>
+        <form id="work">
+            <div class="form-group">
+                <label for="work-name">Name</label>
+                <input type="text" class="form-control" id="work-name" />
+                <div class="invalid-feedback">
+                    Please enter workshop name
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="work-info">Info</label>
+                <input type="text" class="form-control" id="work-info" />
+                <div class="invalid-feedback">
+                    Please enter workshop info
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="work-des">Description</label>
+                <input type="text" class="form-control" id="work-des" />
+                <div class="invalid-feedback">
+                    Please enter workshop description
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="work-file">Poster</label>
+                <input type="file" class="form-control" id="work-file" />
+                <div class="invalid-feedback">
+                    Please choose valid poster
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="work-date">Date</label>
+                <input type="date" class="form-control" id="work-date" />
+                <div class="invalid-feedback">
+                    Please enter workshop date
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="progress">
+                    <div id="work-progress" class="progress-bar" style="width:0%">0%</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="work-upload" type="button" class="btn btn-primary">Publish Workshop</button>
+            </div>
+            <div id="result-work">
+                <h6></h6>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="col-lg-12">
+        <div>
+            <h3>Registered Candidates</h3>
+            <br>
+            <label for="res-text">Workshop</label>
+            <select placeholder="Select from list only" list="technology" class="form-control " id="res-text"></select>
+            <div class="invalid-feedback">
+                Please select any workshop
+            </div>
+
+
+        </div>
+        <div>
+            <br>
+            <button id="train-export" type="button">Export Excel</button>
+            <br>
+            <br>
+            <table id="export-train" class="table table-striped">
+                <thead>
+                    <td>Name</td>
+                    <td>Mobile</td>
+                    <td>Email</td>
+                    <td>D.O.R</td>
+                    <td>College</td>
+                    <td>Course</td>
+                    <td>Year</td>
+                    <td>Branch</td>
+                    <td>R.C</td>
+                </thead>
+                <tbody id="work-res">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+<script src="../JS/workshop.js">
+</script>
