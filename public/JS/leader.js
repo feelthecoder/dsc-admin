@@ -1,6 +1,5 @@
 var li = firebase.database().ref('Achievment');
-
-li.orderByChild("DP").once("value", function(gets) {
+li.orderByChild("dp").once("value", function(gets) {
 
     if (gets.exists()) {
         var resHtml = "";
@@ -14,10 +13,10 @@ li.orderByChild("DP").once("value", function(gets) {
             resHtml += "<td>"
             resHtml += "<img src='"
             resHtml += get.val().image;
-            resHtml += "' id='image'  width=50px height=50px  style='border-radius:50%;margin-top:10px'/>"
+            resHtml += "' id='image'  width='50px' height='50px' style='border-radius:50%;margin-top:10px'/>"
             resHtml += "</td>"
             resHtml += "<td>"
-            resHtml += get.val().DP;
+            resHtml += get.val().dp;
             resHtml += "</td>"
             resHtml += "</tr>"
 
