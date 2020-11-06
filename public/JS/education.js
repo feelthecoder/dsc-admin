@@ -1,3 +1,4 @@
+var pr = document.getElementById("spin");
 $("#res-text").addClass("is-invalid");
 var value = document.getElementById("res-text");
 var tech = "";
@@ -11,7 +12,7 @@ value.addEventListener("input", function() {
         var technology = tech.toLowerCase().replace(" ", "").replace("#", "sharp").replace("++", "plusplus");
 
 
-        $("#pdf-upload").click(function() {
+        $("#pdf-upload").off('click').on('click', function() {
             var validType = ["application/pdf"];
 
             $("#pdf-text").removeClass("is-invalid");
@@ -35,7 +36,8 @@ value.addEventListener("input", function() {
                 return;
             }
 
-            $("#spinner").addClass("spinner-grow")
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
 
 
             var database = firebase.database().ref("Education/" + technology + "/pdf/");
@@ -80,21 +82,18 @@ value.addEventListener("input", function() {
 
 
                             }
-                            $("#spinner").removeClass("spinner-grow")
+                            $("#spinner").removeClass("spinner-grow");
+                            pr.style.display = "none";
+
                             $("#form-pdf")[0].reset();
                             $("#pdf-progress").html("Completed");
                         });
                     })
                 })
 
-
-
-
-
-
         })
 
-        $("#blog-upload").click(function() {
+        $("#blog-upload").off('click').on('click', function() {
             $("#blog-text").removeClass("is-invalid");
             $("#blog-link").removeClass("is-invalid");
 
@@ -117,7 +116,8 @@ value.addEventListener("input", function() {
                 "name": title,
                 "link": link
             };
-            $("#spinner").addClass("spinner-grow")
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
             data.push().set(dataS, function(err) {
                 if (err) {
                     $("#result-blog").attr("class", "alert alert-danger");
@@ -129,17 +129,17 @@ value.addEventListener("input", function() {
 
 
                 }
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
+
+
                 $("#form-blog")[0].reset();
 
             })
 
-
-
-
         })
 
-        $("#udemy-upload").click(function() {
+        $("#udemy-upload").off('click').on('click', function() {
             $("#udemy-text").removeClass("is-invalid");
             $("#udemy-link").removeClass("is-invalid");
 
@@ -155,7 +155,8 @@ value.addEventListener("input", function() {
                 $("#udemy-link").addClass("is-invalid");
                 return;
             }
-            $("#spinner").addClass("spinner-grow")
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
 
 
             var data = firebase.database().ref("Education/" + technology + "/udemy/");
@@ -175,17 +176,17 @@ value.addEventListener("input", function() {
 
 
                 }
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
+
+
 
                 $("#form-udemy")[0].reset();
 
             })
-
-
-
         })
 
-        $("#youtube-upload").click(function() {
+        $("#youtube-upload").off('click').on('click', function() {
             $("#youtube-text").removeClass("is-invalid");
             $("#youtube-link").removeClass("is-invalid");
 
@@ -201,8 +202,8 @@ value.addEventListener("input", function() {
                 $("#youtube-link").addClass("is-invalid");
                 return;
             }
-
-            $("#spinner").addClass("spinner-grow")
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
             var data = firebase.database().ref("Education/" + technology + "/youtube/");
 
             var dataS = {
@@ -220,7 +221,9 @@ value.addEventListener("input", function() {
 
 
                 }
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
+
                 $("#form-youtube")[0].reset();
 
             })
@@ -229,7 +232,7 @@ value.addEventListener("input", function() {
 
         })
 
-        $("#dsc-upload").click(function() {
+        $("#dsc-upload").off('click').on('click', function() {
             $("#dsc-text").removeClass("is-invalid");
             $("#dsc-link").removeClass("is-invalid");
 
@@ -247,7 +250,8 @@ value.addEventListener("input", function() {
             }
 
 
-            $("#spinner").addClass("spinner-grow")
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
             var data = firebase.database().ref("Education/" + technology + "/dsc/");
 
             var dataS = {
@@ -265,7 +269,10 @@ value.addEventListener("input", function() {
 
 
                 }
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
+
+
                 $("#form-dsc")[0].reset();
 
             })
@@ -273,7 +280,7 @@ value.addEventListener("input", function() {
 
         })
 
-        $("#nptel-upload").click(function() {
+        $("#nptel-upload").off('click').on('click', function() {
             $("#nptel-text").removeClass("is-invalid");
             $("#nptel-link").removeClass("is-invalid");
 
@@ -289,7 +296,8 @@ value.addEventListener("input", function() {
                 $("#nptel-link").addClass("is-invalid");
                 return;
             }
-            $("#spinner").addClass("spinner-grow")
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
 
             var data = firebase.database().ref("Education/" + technology + "/nptel/");
 
@@ -308,7 +316,10 @@ value.addEventListener("input", function() {
 
 
                 }
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
+
+
                 $("#form-nptel")[0].reset();
 
             })
@@ -317,7 +328,7 @@ value.addEventListener("input", function() {
 
         })
 
-        $("#book-upload").click(function() {
+        $("#book-upload").off('click').on('click', function() {
             var validType = ["application/pdf"];
 
             $("#book-text").removeClass("is-invalid");
@@ -341,8 +352,8 @@ value.addEventListener("input", function() {
                 return;
             }
 
-            $("#spinner").addClass("spinner-grow")
-
+            pr.style.display = "block";
+            $("#spinner").addClass("spinner-grow");
 
 
             var database = firebase.database().ref("Education/" + technology + "/books/");
@@ -387,20 +398,19 @@ value.addEventListener("input", function() {
 
 
                             }
-                            $("#spinner").removeClass("spinner-grow")
+                            $("#spinner").removeClass("spinner-grow");
+                            pr.style.display = "none";
+
                             $("#form-book")[0].reset();
                             $("#book-progress").html("Completed");
                         });
                     })
                 })
-
-
-
-
         })
     }
 
 });
+
 var res = firebase.database().ref("SubmittedResources/");
 res.on("value", function(r) {
 
@@ -467,10 +477,12 @@ res.on("value", function(r) {
                     })
                     $("#edu-resource").html(resHtml);
                     $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                 }
             })
 
         })
+
     }
 });
 
@@ -483,7 +495,7 @@ function funAccept(user, id) {
             alert("Resource Accepted !");
         }
 
-    })
+    });
 
 }
 

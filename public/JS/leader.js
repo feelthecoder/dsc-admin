@@ -1,4 +1,6 @@
 var li = firebase.database().ref('Achievment');
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 li.orderByChild("dp").once("value", function(gets) {
 
     if (gets.exists()) {
@@ -25,7 +27,8 @@ li.orderByChild("dp").once("value", function(gets) {
         $("#train-res").html(resHtml);
     } else {
         $("spinner").removeClass("spinner-grow");
-    }
+        pr.style.display = "none";]
+}
 })
 
 var list = firebase.database().ref("LeaderboardWinners/");
@@ -59,8 +62,11 @@ list.on("value", function(gets) {
 
         })
         $("#winner-res").html(resHtml);
+        $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     } else {
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     }
 })
 

@@ -1,5 +1,6 @@
 var li = firebase.database().ref("Donation/");
-
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 li.on("value", function(tra) {
     if (tra.exists()) {
 
@@ -34,6 +35,7 @@ li.on("value", function(tra) {
         $("#re-text").html(resOption);
         $("#res-text").html(perOption);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 })
@@ -45,6 +47,7 @@ var uid = "";
 value.addEventListener("input", function() {
     uid = this.value;
     $("#train-res").html("");
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
     $("#re-text").removeClass("is-invalid");
     var dres = firebase.database().ref("Donation" + uid + "/");
@@ -53,6 +56,7 @@ value.addEventListener("input", function() {
         $("#train-res").html("");
         $("#re-text").addClass("is-invalid");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
         return;
     } else {
         dres.on("value", function(gets) {
@@ -93,12 +97,14 @@ value.addEventListener("input", function() {
                     })
                     $("#train-res").html(resHtml);
                     $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                 })
 
             } else {
                 $("#train-res").html("");
                 $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
             }
         })
 
@@ -149,10 +155,12 @@ dres.on("value", function(gets) {
         })
         $("#train-res").html(resHtml);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     } else {
         $("#train-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     }
 })
 

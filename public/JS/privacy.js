@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 $("#policy-upload").click(function() {
     $("#policy-file").removeClass("is-invalid");
 
@@ -16,7 +18,7 @@ $("#policy-upload").click(function() {
         return;
     }
 
-
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow")
 
 
@@ -57,7 +59,8 @@ $("#policy-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#policy")[0].reset();
                     $("#policy-progress").html("Completed");
                 });
@@ -72,6 +75,7 @@ db.on("value", function(about) {
         var link = about.val();
         $("#pdf-embed").attr("src", link);
         $("#spinner").removeClass("spinner-grow")
+        pr.style.display = "none";
     }
 
 

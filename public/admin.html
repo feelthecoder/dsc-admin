@@ -25,6 +25,13 @@
             right: 200px;
         }
         
+        .spin {
+            position: fixed;
+            width: 320px;
+            top: 260px;
+            left: 50px;
+        }
+        
         .chat-header {
             background: #4267B2;
             padding-top: 1px;
@@ -118,6 +125,21 @@
             padding: 10px;
             text-align: left;
         }
+        
+        #spin {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(246, 245, 245, 0);
+            backdrop-filter: blur(5px);
+            display: none;
+        }
+        
+        #sub-load {
+            height: 300px;
+            top: 20%;
+            background-color: rgb(199, 198, 198);
+            border-radius: 14px;
+        }
     </style>
 
 </head>
@@ -150,20 +172,30 @@
         </div>
     </div>
 </div>
+<div class="modal" id="spin">
+    <div class="modal-dialog" id="sub-load">
+        <span style="margin-top:50%;margin-left:35%;" class="text text-primary"> Updating...Please Wait</span>
+        <div id="spinner " class="text-primary spinner-grow spin" role="status" style="margin-left:45%;width: 3rem; height: 3rem; ">
 
-<body class="h-100" style="background-color: #343a40;">
+        </div>
+
+    </div>
+</div>
+
+
+<body class="h-100 " style="background-color: #343a40; ">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position:-webkit-sticky">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Welcome Admin!</a>
-            <div class="dropdown navbar-right">
-                <button id="user-email" class="btn btn-secondary " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="container-fluid ">
+            <a class="navbar-brand " href="# ">Welcome Admin!</a>
+            <div class="dropdown navbar-right ">
+                <button id="user-email" class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Chat
                     </button>
                 <div class="dropdown-menu" style="margin-top:8px;width:315px;height:540px;background:#343a40;" aria-labelledby="user-email">
                     <div class="search" style="float: left;margin: 7px;">
                         <form action="#">
-                            <input style="width: 250px;height:25px;border-radius: 25px;border: none;" type="text" placeholder=" Search " name="search">
+                            <input style="width: 250px;height:25px;border-radius: 25px;border: none;" type="text" placeholder="Search" name="search">
                             <button style="background-color: #343a40;color: #f2f2f2;float: right;margin-left:10px;margin-top:2px;padding: 2px 2px;margin-right: 16px;font-size: 12px;border: none;cursor: pointer;"> 
                                 <i class="fa fa-search"
                                     style="font-size: 18px;"> 
@@ -171,13 +203,7 @@
                     </button>
                         </form>
                     </div>
-                    <div id="users" style="margin:4px, 4px; 
-                    padding:4px; 
-                    height: 100%; 
-                    background-color:#343a40;
-                    overflow-x: hidden; 
-                    overflow-y: auto; 
-                    text-align:justified;">
+                    <div id="users" style="margin:4px, 4px; padding:4px; height: 100%; background-color:#343a40; overflow-x: hidden; overflow-y: auto; text-align:justified;">
 
                     </div>
                 </div>
@@ -202,76 +228,73 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li class=" nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/education.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/education.html')">
                         <span>e-Library</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/training.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/training.html')">
                         <span>Training</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/event.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/event.html')">
                         <span>Events</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/workshop.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/workshop.html')">
                         <span>Workshop</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/project.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/project.html')">
                         <span>Projects</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="#" onclick="switchView('HTML/quiz.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/quiz.html')">
                         <span>Quiz</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/spandan.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/spandan.html')">
                         <span>Tech Spandan</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/compete.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/compete.html')">
                         <span>Competitions</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/donate.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/donate.html')">
                         <span>Donate For Code</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/leader.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/leader.html')">
                         <span>Show Leader Board</span>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/about.html')">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/about.html')">
                         <span>About DSC</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link " href="# " onclick="switchView('HTML/privacy.html')">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('HTML/privacy.html')">
                         <span>Privacy Policy</span>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div class="container " id="container" style="background-color:rgb(240, 240, 240)">
+        <div class="container" id="container" style="background-color:rgb(240, 240, 240)">
             <strong>
                 <h2 style="font-family:fantasy">HOME</h2></strong>
             <hr color=red height=20px/>
-            <div id="spinner" class="text-primary spinner-grow" role="status" style="margin-left:45%;width: 3rem; height: 3rem;">
-                <span class="sr-only">Loading...</span>
-            </div>
             <div class="row">
                 <div class="col-lg-5">
                     <form id="form-news">

@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 $("#spa-upload").click(function() {
 
     var validFormat = ["image/png", "image/jpg", "image/jpeg"];
@@ -66,8 +68,9 @@ $("#spa-upload").click(function() {
     varaDate = dete() + " " + month[mon] + " " + year;
     console.log(varaDate);
 
-
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
+
 
 
     var database = firebase.database().ref("SpandanEvents/");
@@ -116,7 +119,8 @@ $("#spa-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#spandan")[0].reset();
                     $("#spa-progress ").html("Completed ");
                 })
@@ -160,8 +164,8 @@ $("#res-upload").click(function() {
         return;
     }
 
-
-    $("#spinner").addClass("spinner-grow")
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
 
     var database = firebase.database().ref("SpandanResources/" + year);
 
@@ -207,7 +211,8 @@ $("#res-upload").click(function() {
 
                     }
 
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                     $("#resource")[0].reset();
                     $("#res-progress").html("Completed ");
@@ -233,8 +238,8 @@ $("#about-upload").click(function() {
         $("#about-file").addClass("is-invalid");
         return;
     }
-
-    $("#spinner").addClass("spinner-grow")
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
 
     var database = firebase.database().ref("SpandanResources/aboutpdf");
 
@@ -273,7 +278,8 @@ $("#about-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#about")[0].reset();
                     $("#about-progress").html("Completed");
                 });
@@ -295,6 +301,7 @@ li.on("value", function(eva) {
         })
         $("#res-text").html(resOption);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 })
@@ -305,6 +312,7 @@ var compete = "";
 
 value.addEventListener("input", function() {
     compete = this.value;
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
     $("#res-text").removeClass("is-invalid");
     $("#compete-res").html("");
@@ -314,6 +322,7 @@ value.addEventListener("input", function() {
         $("#res-text").addClass("is-invalid");
         $("#compete-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
         return;
     } else {
         dres.on("value", function(gets) {
@@ -353,11 +362,13 @@ value.addEventListener("input", function() {
                     })
                     $("#compete-res").html(resHtml);
                     $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                 })
             } else {
                 $("#compete-res").html("");
                 $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
 
             }
         })
@@ -408,11 +419,13 @@ dres.on("value", function(gets) {
             })
             $("#compete-res").html(resHtml);
             $("#spinner").removeClass("spinner-grow");
+            pr.style.display = "none";
 
         })
     } else {
         $("#compete-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 })

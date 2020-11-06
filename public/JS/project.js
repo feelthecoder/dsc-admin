@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 $("#project-upload").click(function() {
 
     var validFormat = ["application/pdf"];
@@ -22,7 +24,8 @@ $("#project-upload").click(function() {
         return;
     }
 
-    $("#spinner").addClass("spinner-grow")
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
     var time = new Date().getTime();
 
     var database = firebase.database().ref("Projects/sample");
@@ -62,7 +65,8 @@ $("#project-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#project")[0].reset();
                     $("#project-progress").html("Completed");
                 })
@@ -155,9 +159,10 @@ res.on("value", function(r) {
 
                         })
                         $("#project-list").html(resHtml);
-                        $("#spinner").removeClass("spinner-grow");
 
                     })
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                 }
             })
 

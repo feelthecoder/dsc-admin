@@ -1,6 +1,8 @@
 var addC = document.getElementById("myModal");
 var value = document.getElementById("quiz-name");
 var tech = "";
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 value.addEventListener("input", function() {
     tech = this.value;
     if (!tech) {
@@ -12,7 +14,7 @@ value.addEventListener("input", function() {
         $("#quiz-name").removeClass("is-invalid");
         var technology = tech.toLowerCase().replace(" ", "").replace("#", "sharp").replace("++", "plusplus");
 
-        $("#quiz-upload").click(function() {
+        $("#quiz-upload").off('click').on('click', function() {
 
             var techie = $("#quiz-name").val();
             if (!techie) {
@@ -65,6 +67,7 @@ value.addEventListener("input", function() {
             }
 
 
+            pr.style.display = "block";
             $("#spinner").addClass("spinner-grow");
 
             var quizData = {
@@ -91,7 +94,8 @@ value.addEventListener("input", function() {
 
                 }
 
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
                 $("#quizy")[0].reset();
                 $("#quiz-name").val("");
                 $("#quiz-question").val("");
@@ -124,6 +128,7 @@ li.on("value", function(tra) {
         $("#quiz-name").html(resOption);
         $("#category_id").html(resOption);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 })
@@ -137,6 +142,8 @@ val.addEventListener("input", function() {
     $("#res-q").html("");
     var technology = question.toLowerCase().replace(" ", "").replace("#", "sharp").replace("++", "plusplus");
 
+
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
     $("#re-text").removeClass("is-invalid");
     var dres = firebase.database().ref("QuizData/QA/" + technology + "/");
@@ -145,6 +152,7 @@ val.addEventListener("input", function() {
         $("#re-text").addClass("is-invalid");
         $("#res-q").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
         return;
     } else {
@@ -188,9 +196,11 @@ val.addEventListener("input", function() {
                 })
                 $("#res-q").html(resHtml);
                 $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
             } else {
                 $("#res-q").html("");
                 $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
             }
         })
 
@@ -243,9 +253,11 @@ dres.on("value", function(gets) {
         })
         $("#res-q").html(resHtml);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     } else {
         $("#res-q").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     }
 })
 

@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 $("#event-upload").click(function() {
 
     var validFormat = ["image/jpeg", "image/png", "image/jpg"];
@@ -41,7 +43,9 @@ $("#event-upload").click(function() {
     }
 
 
-    $("#spinner").addClass("spinner-grow")
+
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
     var datee = new Date(date);
     var month = [
         "January",
@@ -118,7 +122,8 @@ $("#event-upload").click(function() {
 
                     }
 
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                     $("#event")[0].reset();
                     $("#event-progress").html("Completed ");
@@ -141,6 +146,7 @@ li.on("value", function(eva) {
         })
         $("#res-text").html(resOption);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 })
@@ -151,6 +157,7 @@ var event = "";
 
 value.addEventListener("input", function() {
     event = this.value;
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
     $("#event-res").html("");
     $("#res-text").removeClass("is-invalid");
@@ -160,6 +167,7 @@ value.addEventListener("input", function() {
         $("#res-text").addClass("is-invalid");
         $("#event-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
         return;
     } else {
         dres.on("value", function(gets) {
@@ -199,11 +207,13 @@ value.addEventListener("input", function() {
                     })
                     $("#event-res").html(resHtml);
                     $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                 })
             } else {
                 $("#event-res").html("");
                 $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
             }
         })
 
@@ -252,11 +262,13 @@ dres.on("value", function(gets) {
             })
             $("#event-res").html(resHtml);
             $("#spinner").removeClass("spinner-grow");
+            pr.style.display = "none";
 
         })
     } else {
         $("#event-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     }
 })
 

@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+
 $("#about-upload").click(function() {
     $("#about-file").removeClass("is-invalid");
 
@@ -15,7 +17,7 @@ $("#about-upload").click(function() {
         $("#about-file").addClass("is-invalid");
         return;
     }
-
+    pr.stye.display = "block";
     $("#spinner").addClass("spinner-grow")
 
     var database = firebase.database().ref("About/aboutpdf");
@@ -55,7 +57,8 @@ $("#about-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#about")[0].reset();
                     $("#about-progress").html("Completed");
                 });
@@ -165,7 +168,7 @@ value.addEventListener("input", function() {
                 $("#team-profile").addClass("is-invalid");
                 return;
             }
-
+            pr.style.display = "block";
             $("#spinner").addClass("spinner-grow")
 
             var database = firebase.database().ref("About/" + mem + "/");
@@ -221,7 +224,8 @@ value.addEventListener("input", function() {
 
 
                             }
-                            $("#spinner").removeClass("spinner-grow")
+                            $("#spinner").removeClass("spinner-grow");
+                            pr.style.display = "none";
                             $("#team")[0].reset();
                             $("#team-progress").html("Completed");
                         });

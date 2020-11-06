@@ -1,12 +1,12 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyCYWS7451XV0dZzU1sUBXMGY47wgXoi_fM",
-    authDomain: "developer-student-club-22121.firebaseapp.com",
-    databaseURL: "https://developer-student-club-22121.firebaseio.com",
-    projectId: "developer-student-club-22121",
-    storageBucket: "developer-student-club-22121.appspot.com",
-    messagingSenderId: "868245345830",
-    appId: "1:868245345830:web:a48d917876b5116289f8e7",
-    measurementId: "G-XSBRCGNTVF"
+    apiKey: "AIzaSyDy2YQ5WmYU8aXQA9Q8v75rLrjoA22SFxc",
+    authDomain: "dsc-rec-bijnor.firebaseapp.com",
+    databaseURL: "https://dsc-rec-bijnor.firebaseio.com",
+    projectId: "dsc-rec-bijnor",
+    storageBucket: "dsc-rec-bijnor.appspot.com",
+    messagingSenderId: "925536166088",
+    appId: "1:925536166088:web:31595f8648ae4f76c445fd",
+    measurementId: "G-VG0TCQ0KV9"
 };
 
 

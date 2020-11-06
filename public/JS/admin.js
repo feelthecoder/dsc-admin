@@ -2,6 +2,8 @@ $("#user-close").click(function() {
     document.getElementById("chat-box").style.display = "none";
 })
 
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 
 $("#news-upload").click(function() {
     $("#news-text").removeClass("is-invalid");
@@ -14,6 +16,8 @@ $("#news-upload").click(function() {
         return;
     }
 
+
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
 
 
@@ -30,6 +34,7 @@ $("#news-upload").click(function() {
 
         }
         $("#spinner").removeClass("spinner-grow")
+        pr.style.display = "none";
         $("#form-news")[0].reset();
 
     })
@@ -64,7 +69,9 @@ $("#banner-upload").click(function() {
         $("#banner-file").addClass("is-invalid");
         return;
     }
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow")
+
 
     var database = firebase.database().ref("Switcher/");
 
@@ -195,6 +202,7 @@ $("#banner-upload").click(function() {
                     });
                 }
                 $("#spinner").removeClass("spinner-grow")
+                pr.style.display = "none";
                 $("#form-banner")[0].reset();
                 $("#banner-progress").html("Completed");
 
@@ -226,6 +234,7 @@ $("#result-upload").click(function() {
         $("#result-file").addClass("is-invalid");
         return;
     }
+    pr.style.display = "block";
 
     $("#spinner").addClass("spinner-grow");
 
@@ -274,6 +283,7 @@ $("#result-upload").click(function() {
 
                     }
                     $("#spinner").removeClass("spinner-grow")
+                    pr.style.display = "none";
                     $("#form-result")[0].reset();
                     $("#result-progress").html("Completed");
                 });
@@ -313,6 +323,7 @@ $("#post-upload").click(function() {
         return;
     }
 
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow")
 
     var time = new Date().getTime();
@@ -365,6 +376,7 @@ $("#post-upload").click(function() {
 
                     }
                     $("#spinner").removeClass("spinner-grow")
+                    pr.style.display = "none";
                     $("#form-post")[0].reset();
                     $("#post-progress").html("Completed");
                 })
@@ -379,6 +391,9 @@ dComp.on("value", function(complains) {
     if (complains.exists()) {
         var complainHtml = "";
 
+        $("#spinner").addClass("spinner-grow");
+        pr.style.display = "block";
+
         complains.forEach(function(complain) {
             complainHtml += "<tr>";
             complainHtml += "<td>";
@@ -390,7 +405,9 @@ dComp.on("value", function(complains) {
         });
         $("#complain").html(complainHtml);
 
-        $("#spinner").addClass("spinner-grow");
+
+        $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 
@@ -402,6 +419,8 @@ feed.on("value", function(feedbacks) {
 
     if (feedbacks.exists()) {
         var feedbackHtml = "";
+        pr.style.display = "block";
+        $("#spinner").addClass("spinner-grow");
 
         feedbacks.forEach(function(feedback) {
             feedbackHtml += "<tr>";
@@ -412,10 +431,11 @@ feed.on("value", function(feedbacks) {
 
 
         });
-        $("#spinner").removeClass("spinner-grow");
+
         $("#feedback").html(feedbackHtml);
     }
     $("#spinner").removeClass("spinner-grow");
+    pr.style.display = "none";
 
 })
 
@@ -423,6 +443,9 @@ var userN = firebase.database().ref("Users/");
 userN.on("value", function(r) {
 
     if (r.exists()) {
+        pr.style.display = "block";
+        $("#spinner").addClass("spinner-grow");
+
         var resHtml = "";
         r.forEach(function(re) {
 
@@ -445,6 +468,7 @@ userN.on("value", function(r) {
         })
         $("#users").html(resHtml);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     }
 })
 

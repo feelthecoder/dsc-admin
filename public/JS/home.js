@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 $("#news-upload").click(function() {
     $("#news-text").removeClass("is-invalid");
 
@@ -9,6 +11,7 @@ $("#news-upload").click(function() {
         return;
     }
 
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
 
 
@@ -24,7 +27,8 @@ $("#news-upload").click(function() {
 
 
         }
-        $("#spinner").removeClass("spinner-grow")
+        $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
         $("#form-news")[0].reset();
 
     })
@@ -59,8 +63,9 @@ $("#banner-upload").click(function() {
         $("#banner-file").addClass("is-invalid");
         return;
     }
-    $("#spinner").addClass("spinner-grow")
 
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
     var database = firebase.database().ref("Switcher/");
 
     var name = file["name"];
@@ -189,7 +194,8 @@ $("#banner-upload").click(function() {
                         }
                     });
                 }
-                $("#spinner").removeClass("spinner-grow")
+                $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
                 $("#form-banner")[0].reset();
                 $("#banner-progress").html("Completed");
 
@@ -222,8 +228,9 @@ $("#result-upload").click(function() {
         return;
     }
 
-    $("#spinner").addClass("spinner-grow");
 
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
     var time = new Date().getTime();
 
     var database = firebase.database().ref("Results/" + time.toString());
@@ -268,7 +275,8 @@ $("#result-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#form-result")[0].reset();
                     $("#result-progress").html("Completed");
                 });
@@ -308,7 +316,9 @@ $("#post-upload").click(function() {
         return;
     }
 
-    $("#spinner").addClass("spinner-grow")
+
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
 
     var time = new Date().getTime();
 
@@ -359,7 +369,8 @@ $("#post-upload").click(function() {
 
 
                     }
-                    $("#spinner").removeClass("spinner-grow")
+                    $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
                     $("#form-post")[0].reset();
                     $("#post-progress").html("Completed");
                 })
@@ -402,7 +413,8 @@ feed.on("value", function(feedbacks) {
 
 
         });
-        $("#spinner").removeClass("spinner-grow")
+        $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
         $("#feedback").html(feedbackHtml);
     }
 

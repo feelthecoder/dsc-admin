@@ -1,3 +1,5 @@
+var pr = document.getElementById("spin");
+pr.style.display = "block";
 $("#train-upload").click(function() {
 
     var validFormat = ["image/jpeg", "image/png", "image/jpg"];
@@ -66,6 +68,9 @@ $("#train-upload").click(function() {
     varaDate = dete() + " " + month[mon] + " " + year;
     console.log(varaDate);
 
+
+
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
 
 
@@ -116,6 +121,7 @@ $("#train-upload").click(function() {
 
                     }
                     $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                     $("#training")[0].reset();
                     $("#train-progress ").html("Completed ");
@@ -138,6 +144,7 @@ li.on("value", function(tra) {
         })
         $("#res-text").html(resOption);
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
 
     }
 })
@@ -148,6 +155,9 @@ var training = "";
 
 value.addEventListener("input", function() {
     training = this.value;
+
+
+    pr.style.display = "block";
     $("#spinner").addClass("spinner-grow");
     $("#train-res").html("");
     $("#res-text").removeClass("is-invalid");
@@ -157,6 +167,7 @@ value.addEventListener("input", function() {
         $("#res-text").addClass("is-invalid");
         $("#train-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
         return;
     } else {
         dres.on("value", function(gets) {
@@ -196,12 +207,14 @@ value.addEventListener("input", function() {
                     })
                     $("#train-res").html(resHtml);
                     $("#spinner").removeClass("spinner-grow");
+                    pr.style.display = "none";
 
                 })
 
             } else {
                 $("#train-res").html("");
                 $("#spinner").removeClass("spinner-grow");
+                pr.style.display = "none";
             }
         })
 
@@ -248,12 +261,14 @@ dres.on("value", function(gets) {
             })
             $("#train-res").html(resHtml);
             $("#spinner").removeClass("spinner-grow");
+            pr.style.display = "none";
 
         })
 
     } else {
         $("#train-res").html("");
         $("#spinner").removeClass("spinner-grow");
+        pr.style.display = "none";
     }
 })
 $("#train-export").click(function() {
