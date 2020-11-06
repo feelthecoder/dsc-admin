@@ -500,6 +500,6 @@ function funReject(user, id) {
             alert("Resource Rejected !");
         }
 
-    })
+    });
 
 }
