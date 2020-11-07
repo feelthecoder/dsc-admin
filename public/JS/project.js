@@ -1,5 +1,5 @@
 var pr = document.getElementById("spin");
-pr.style.display = "block";
+
 $("#project-upload").click(function() {
 
     var validFormat = ["application/pdf"];

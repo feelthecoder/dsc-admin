@@ -2,7 +2,7 @@ var addC = document.getElementById("myModal");
 var value = document.getElementById("quiz-name");
 var tech = "";
 var pr = document.getElementById("spin");
-pr.style.display = "block";
+
 value.addEventListener("input", function() {
     tech = this.value;
     if (!tech) {

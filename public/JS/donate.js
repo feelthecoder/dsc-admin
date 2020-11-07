@@ -1,6 +1,7 @@
 var li = firebase.database().ref("Donation/");
 var pr = document.getElementById("spin");
-pr.style.display = "block";
+
+const nodemailer = require("nodemailer");
 li.on("value", function(tra) {
     if (tra.exists()) {
 
@@ -174,11 +175,43 @@ sele.addEventListener("input", function() {
     $("#email").val(email);
 
 });
+var transporter = createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user: 'events.dscrecbijnor@gmail.com', // generated ethereal user
+        pass: 'xyz',
+    }
+});
 
 
 
+$("#send-mail").click(function() {
+    pr.style.display = "block";
+    $("#spinner").addClass("spinner-grow");
 
+    var email = $("#email").val();
+    var subj = $("#subject").val();
+    var desc = $("#questions").val();
+    var mailOptions = {
+        from: 'events.dscrecbijnor@gmail.com',
+        to: email,
+        subject: subj,
+        text: desc
+    };
 
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+
+            $("#spinner").removeClass("spinner-grow");
+            pr.style.display = "none";
+        }
+    });
+})
 
 $("#train-export").click(function() {
     $("#export-train").table2excel({

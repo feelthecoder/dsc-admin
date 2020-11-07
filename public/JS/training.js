@@ -1,5 +1,5 @@
 var pr = document.getElementById("spin");
-pr.style.display = "block";
+
 $("#train-upload").click(function() {
 
     var validFormat = ["image/jpeg", "image/png", "image/jpg"];

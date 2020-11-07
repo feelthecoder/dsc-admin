@@ -1,5 +1,5 @@
 var pr = document.getElementById("spin");
-pr.style.display = "block";
+
 $("#news-upload").click(function() {
     $("#news-text").removeClass("is-invalid");
 

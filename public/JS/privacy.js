@@ -1,5 +1,5 @@
 var pr = document.getElementById("spin");
-pr.style.display = "block";
+
 $("#policy-upload").click(function() {
     $("#policy-file").removeClass("is-invalid");
 

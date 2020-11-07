@@ -1,16 +1,6 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyDy2YQ5WmYU8aXQA9Q8v75rLrjoA22SFxc",
-    authDomain: "dsc-rec-bijnor.firebaseapp.com",
-    databaseURL: "https://dsc-rec-bijnor.firebaseio.com",
-    projectId: "dsc-rec-bijnor",
-    storageBucket: "dsc-rec-bijnor.appspot.com",
-    messagingSenderId: "925536166088",
-    appId: "1:925536166088:web:31595f8648ae4f76c445fd",
-    measurementId: "G-VG0TCQ0KV9"
+    projectKeys: 'project data'
 };
-
-
-
 firebase.initializeApp(firebaseConfig);
 
 firebase.auth.Auth.Persistence.LOCAL;
